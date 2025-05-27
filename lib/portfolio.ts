@@ -30,20 +30,20 @@ const portfolioItems = [
     link: "https://safd-absence-generator.vercel.app/",
     alt: "generator",
   },
-  {
-    title: "Instagram Follow Back Checker",
-    description: "Check if someone follows you back on Instagram.",
-    image: "/follback.png",
-    link: "https://check-follback.vercel.app/",
-    alt: "follback",
-  },
-  {
-    title: "JSON Instagram Converter",
-    description: "Easy read followers and following Instagram JSON data.",
-    image: "/json.png",
-    link: "https://json-ig-converter.vercel.app/",
-    alt: "json",
-  },
+  // {
+  //   title: "Instagram Follow Back Checker",
+  //   description: "Check if someone follows you back on Instagram.",
+  //   image: "/follback.png",
+  //   link: "https://check-follback.vercel.app/",
+  //   alt: "follback",
+  // },
+  // {
+  //   title: "JSON Instagram Converter",
+  //   description: "Easy read followers and following Instagram JSON data.",
+  //   image: "/json.png",
+  //   link: "https://json-ig-converter.vercel.app/",
+  //   alt: "json",
+  // },
   {
     title: "SAFD Absence Finder",
     description:
@@ -57,7 +57,7 @@ const portfolioItems = [
     description:
       "Calculator component for mechanic Jogjagmers Reality Project.",
     image: "/component.png",
-    link: "https://jgrp-component-calculator.vercel.app/",
+    link: "https://component-calculator.vercel.app/",
     alt: "component",
   },
   
