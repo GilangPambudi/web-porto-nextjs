@@ -13,7 +13,7 @@ const portfolioItems = [
       "Search About Phone Informations & Models, connected with Phone Specifications API.",
     image: "/seraphim.png",
     link: "https://seraphim.pambudi.site/",
-    alt: "m111",
+    alt: "seraphim",
   },
   {
     title: "Instagram Mutual Detector",
