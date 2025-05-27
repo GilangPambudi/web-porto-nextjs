@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Facebook, Linkedin, Instagram, Github} from "lucide-react";
+import { Facebook, Linkedin, Instagram, Github } from "lucide-react";
+import { SiFacebook, SiLinkedin, SiInstagram, SiGithub, SiTiktok } from "react-icons/si"; // Import TikTok logo from react-icons
 
 export default function Footer() {
   return (
@@ -20,7 +21,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-blue-300 transition-colors"
           >
-            <Linkedin className="w-6 h-6" />
+            <SiLinkedin className="w-6 h-6" />
           </a>
           <a
             href="https://instagram.com/gilang.wib"
@@ -28,7 +29,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-blue-300 transition-colors"
           >
-            <Instagram className="w-6 h-6" />
+            <SiInstagram className="w-6 h-6" />
           </a>
           <a
             href="https://facebook.com/gilanggpambudi"
@@ -36,7 +37,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-blue-300 transition-colors"
           >
-            <Facebook className="w-6 h-6" />
+            <SiFacebook className="w-6 h-6" />
           </a>
           <a
             href="https://github.com/gilangpambudi"
@@ -44,7 +45,15 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-blue-300 transition-colors"
           >
-            <Github className="w-6 h-6" />
+            <SiGithub className="w-6 h-6" />
+          </a>
+          <a
+            href="https://tiktok.com/gawai.santai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-300 transition-colors"
+          >
+            <SiTiktok className="w-6 h-6" /> {/* TikTok logo */}
           </a>
         </div>
       </div>
