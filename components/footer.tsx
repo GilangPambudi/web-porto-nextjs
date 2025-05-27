@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Facebook, Linkedin, Instagram, Github } from "lucide-react";
-import { SiFacebook, SiLinkedin, SiInstagram, SiGithub, SiTiktok } from "react-icons/si"; // Import TikTok logo from react-icons
+import { SiFacebook, SiLinkedin, SiGmail, SiInstagram, SiGithub, SiTiktok } from "react-icons/si"; // Import TikTok logo from react-icons
 
 export default function Footer() {
   return (
@@ -22,6 +22,14 @@ export default function Footer() {
             className="hover:text-blue-300 transition-colors"
           >
             <SiLinkedin className="w-6 h-6" />
+          </a>
+          <a
+            href="mailto:gilangpambudiwibawanto@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-300 transition-colors"
+          >
+            <SiGmail className="w-6 h-6" /> {/* TikTok logo */}
           </a>
           <a
             href="https://instagram.com/gilang.wib"
