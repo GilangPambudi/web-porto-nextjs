@@ -8,9 +8,17 @@ const portfolioItems = [
     alt: "m111",
   },
   {
+    title: "JGRP Vehicle Price Calculator",
+    description:
+      "Calculate dealer price, insurance, copayment, and '/sellveh' price, built with Next.js. ",
+    image: "/jg-veh.png",
+    link: "https://jg-veh.vercel.app/",
+    alt: "jg-veh",
+  },
+  {
     title: "SERAPHIM",
     description:
-      "Search About Phone Informations & Models, connected with Phone Specifications API.",
+      "Search About Phone Informations & Models, connected with phone codename repository.",
     image: "/seraphim.png",
     link: "https://seraphim.pambudi.site/",
     alt: "seraphim",
@@ -49,7 +57,7 @@ const portfolioItems = [
   {
     title: "Component Calculator",
     description:
-      "Calculator component for mechanic Jogjagmers Reality Project.",
+      "Calculator component for mechanic Jogjagmers Reality Project. Built with simple HTML, Bootstrap, and JavaScript.",
     image: "/component.png",
     link: "https://component-calculator.vercel.app/",
     alt: "component",
