@@ -11,7 +11,7 @@ const portfolioItems = [
     title: "JGRP Vehicle Price Calculator",
     description:
       "Calculate dealer price, insurance, copayment, and '/sellveh' price, built with Next.js. ",
-    image: "/jg-veh.png",
+    image: "/jg-dealer.png",
     link: "https://jg-veh.vercel.app/",
     alt: "jg-veh",
   },
