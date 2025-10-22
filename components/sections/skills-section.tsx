@@ -42,7 +42,14 @@ const technicalSkills = [
   { name: "WordPress", icon: SiWordpress, color: "text-blue-800" },
   { name: "Git", icon: SiGit, color: "text-red-600" },
   { name: "GitHub", icon: SiGithub, color: "text-gray-800" },
-  { name: "Laragon", icon: Monitor, color: "text-blue-600" },
+  { name: "Laragon", icon: () => (
+      <img
+        src="https://laragon.org/logo.svg"
+        alt="Laragon"
+        className="w-10 h-10 md:w-12 md:h-12 mb-3"
+        style={{ display: "inline-block" }}
+      />
+    ), color: "text-blue-600" },
 ]
 
 const softSkills = [
