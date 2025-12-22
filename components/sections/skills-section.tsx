@@ -65,9 +65,6 @@ export default function SkillsSection() {
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My Skills</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Here are the technologies and skills I work with to bring ideas to life
-          </p>
         </div>
         
         <div className="space-y-8">

@@ -1,8 +1,8 @@
 import Header from "@/components/header"
 import HeroSection from "@/components/sections/hero-section"
-import AboutSection from "@/components/sections/about-section"
 import SkillsSection from "@/components/sections/skills-section"
 import PortfolioSection from "@/components/sections/portfolio-section"
+// import CertificatesSection from "@/components/sections/certificates-section"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -11,9 +11,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <SkillsSection />
-      {/* <AboutSection /> */}
       <PortfolioSection />
-      {/* Add more sections as needed */}
+      {/* <CertificatesSection /> */}
       <Footer />
     </div>
   )

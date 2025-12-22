@@ -1,5 +1,21 @@
 const portfolioItems = [
   {
+    title: "PAMS - Property and Occupant Management System",
+    description:
+      "A modern property and occupant management system built with Laravel and React.",
+    image: "/pams.webp",
+    link: "https://pams.pambudi.site/",
+    alt: "pams",
+  },
+  {
+    title: "SMADATARARUN 2025",
+    description:
+      "Official website for the SMADATARARUN 2025 running event, providing registration and event information.",
+    image: "/smadatararun.webp",
+    link: "https://smadatararun.com/",
+    alt: "smadatararun",
+  },
+  {
     title: "M111 Reunion Family Event",
     description:
       "A website for the M111 event, providing event information and details.",
@@ -62,6 +78,5 @@ const portfolioItems = [
     link: "https://component-calculator.vercel.app/",
     alt: "component",
   },
-  
 ];
 export default portfolioItems;

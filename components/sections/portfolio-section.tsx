@@ -1,5 +1,5 @@
 import Image from "next/image"
-import portfolioItems from "@/lib/portfolio" // Pastikan path ini sesuai dengan struktur project Anda
+import portfolioItems from "@/lib/portfolio"
 
 export default function PortfolioSection() {
     return (
@@ -19,7 +19,7 @@ export default function PortfolioSection() {
                             className="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden transform hover:-translate-y-2 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-blue-400"
                             style={{ transitionProperty: 'box-shadow, transform, filter' }}
                         >
-                            <div className="relative w-full h-48">
+                            <div className="relative w-full aspect-[1901/868]">
                                 <Image
                                     src={item.image}
                                     alt={item.alt}
