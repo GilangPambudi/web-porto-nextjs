@@ -6,7 +6,7 @@ const footerItems = [
   {
     label: "LinkedIn",
     icon: <SiLinkedin className="w-6 h-6" />,
-    href: "https://linkedin.com/gilangpambudi",
+    href: "https://www.linkedin.com/in/gilangpambudi/",
   },
   {
     label: "Gmail",
