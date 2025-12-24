@@ -1,5 +1,14 @@
 const portfolioItems = [
   {
+    title: "EMPEROR - Intelligent Employee Career Development System",
+    description:
+      "An Human resource promotion and transfer recommendation system for PT Sari Bahari.",
+    image: "/emperor.webp",
+    link: "#",
+    alt: "emperor",
+    isPrivate: true,
+  },
+  {
     title: "PAMS - Property and Occupant Management System",
     description:
       "A modern property and occupant management system built with Laravel and React.",

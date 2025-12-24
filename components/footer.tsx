@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { Facebook, Linkedin, Instagram, Github } from "lucide-react";
 import { SiFacebook, SiLinkedin, SiGmail, SiInstagram, SiGithub, SiTiktok } from "react-icons/si";
 
 const footerItems = [
