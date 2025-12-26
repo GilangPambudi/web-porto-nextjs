@@ -24,27 +24,24 @@ import {
 export interface Skill {
     name: string
     icon: any
-    color: string
+    color?: string
 }
 
 export const technicalSkills: Skill[] = [
-    // Frontend
-    { name: "HTML", icon: SiHtml5, color: "text-orange-600" },
-    { name: "CSS", icon: SiCss3, color: "text-blue-600" },
-    { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500" },
-    { name: "Bootstrap", icon: SiBootstrap, color: "text-purple-600" },
-    { name: "Next.js", icon: SiNextdotjs, color: "text-black" },
-    { name: "React", icon: SiReact, color: "text-blue-500" },
-    // Backend
-    { name: "PHP", icon: SiPhp, color: "text-indigo-600" },
-    { name: "Laravel", icon: SiLaravel, color: "text-red-600" },
-    // Database & Tools
-    { name: "MySQL", icon: SiMysql, color: "text-blue-700" },
-    { name: "Supabase", icon: SiSupabase, color: "text-green-500" },
-    { name: "WordPress", icon: SiWordpress, color: "text-blue-800" },
-    { name: "Git", icon: SiGit, color: "text-red-600" },
-    { name: "GitHub", icon: SiGithub, color: "text-gray-800" },
+    { name: "HTML", icon: SiHtml5, color: "#E34F26" },
+    { name: "CSS", icon: SiCss3, color: "#1572B6" },
+    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+    { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "PHP", icon: SiPhp, color: "#777BB4" },
+    { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
+    { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+    { name: "Supabase", icon: SiSupabase, color: "#3FCF8E" },
+    { name: "WordPress", icon: SiWordpress, color: "#21759B" },
+    { name: "Git", icon: SiGit, color: "#F05032" },
+    { name: "GitHub", icon: SiGithub, color: "#181717" },
     {
         name: "Laragon", icon: () => (
             <img
@@ -53,13 +50,13 @@ export const technicalSkills: Skill[] = [
                 className="w-10 h-10 md:w-12 md:h-12 mb-3"
                 style={{ display: "inline-block" }}
             />
-        ), color: "text-blue-600"
+        ),
     },
 ]
 
 export const softSkills: Skill[] = [
-    { name: "Problem Solving", icon: Brain, color: "text-purple-600" },
-    { name: "Teamwork", icon: Users, color: "text-blue-600" },
-    { name: "Communication", icon: MessageCircle, color: "text-green-600" },
-    { name: "Adaptability", icon: Zap, color: "text-yellow-600" },
+    { name: "Problem Solving", icon: Brain, color: "#E34F26" },
+    { name: "Teamwork", icon: Users, color: "#1572B6" },
+    { name: "Communication", icon: MessageCircle, color: "#3FCF8E" },
+    { name: "Adaptability", icon: Zap, color: "#06B6D4" },
 ]

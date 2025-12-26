@@ -7,7 +7,8 @@ import { useInView } from "@/hooks/use-in-view"
 const SkillItem = ({ skill }: { skill: Skill }) => (
   <div className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 min-w-[100px] group/item cursor-default">
     <skill.icon
-      className={`w-10 h-10 md:w-12 md:h-12 mb-3 ${skill.color} group-hover/item:scale-110 transition-transform duration-200`}
+      className={`w-10 h-10 md:w-12 md:h-12 mb-3 group-hover/item:scale-110 transition-transform duration-200`}
+      style={{ color: skill.color }}
     />
     <span className="text-sm font-medium text-gray-700 text-center whitespace-nowrap">
       {skill.name}

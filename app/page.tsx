@@ -2,7 +2,6 @@ import Header from "@/components/header"
 import HeroSection from "@/components/sections/hero-section"
 import SkillsSection from "@/components/sections/skills-section"
 import PortfolioSection from "@/components/sections/portfolio-section"
-// import CertificatesSection from "@/components/sections/certificates-section"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
       <HeroSection />
       <SkillsSection />
       <PortfolioSection />
-      {/* <CertificatesSection /> */}
       <Footer />
     </div>
   )
