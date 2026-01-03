@@ -33,6 +33,14 @@ const portfolioItems = [
     alt: "smadatararun",
   },
   {
+    title: "Quick Response Elegant Wedding",
+    description: "A guest management system for wedding event.",
+    image: "/qrew.webp",
+    link: "#",
+    isPrivate: true,
+    alt: "qrew",
+  },
+  {
     title: "Folding Ngalam Freedom for All",
     description:
       "A landing page of Folding Ngalam Freedom for All event, providing event information and details.",
