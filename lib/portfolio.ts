@@ -34,7 +34,8 @@ const portfolioItems = [
   },
   {
     title: "Quick Response Elegant Wedding",
-    description: "A guest management system for wedding event.",
+    description:
+      "An all-in-one system to manage wedding guests, invitations, and gifts.",
     image: "/qrew.webp",
     link: "#",
     isPrivate: true,
