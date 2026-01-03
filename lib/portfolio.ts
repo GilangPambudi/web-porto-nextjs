@@ -35,7 +35,7 @@ const portfolioItems = [
   {
     title: "Quick Response Elegant Wedding",
     description:
-      "An all-in-one system to manage wedding guests, invitations, and gifts.",
+      "An all-in-one system to manage wedding guests, invitations, and gifts, built with Laravel.",
     image: "/qrew.webp",
     link: "#",
     isPrivate: true,
