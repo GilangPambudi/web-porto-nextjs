@@ -9,7 +9,7 @@ export default function AboutSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
-    <section ref={ref} id="about" className="py-4 md:py-24 bg-white relative overflow-hidden min-h-screen w-full flex items-center justify-center">
+    <section ref={ref} id="about" className="pt-10 pb-10 md:py-24 bg-slate-50 relative overflow-hidden min-h-screen w-full flex items-center justify-center">
       <div className="w-full md:w-4/5 mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className={`w-full md:w-1/2 mb-10 md:mb-0 transition-all duration-1000 ease-out ${isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>

@@ -15,7 +15,7 @@ export default function PortfolioSection() {
         <section
             ref={ref}
             id="portfolio"
-            className="relative pt-4 md:pt-24 overflow-hidden min-h-screen w-full flex items-center justify-center bg-slate-50 pb-8 md:pb-8"
+            className="relative pt-10 pb-10 md:py-24 overflow-hidden min-h-screen w-full flex items-center justify-center bg-slate-50"
         >
             <div className="w-full md:w-4/5 mx-auto px-4">
                 <h2 className={`text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}>Portfolio</h2>

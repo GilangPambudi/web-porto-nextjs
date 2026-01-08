@@ -10,7 +10,7 @@ export default function ExperienceSection() {
     const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
     return (
-        <section ref={ref} id="experience" className="py-4 md:py-24 bg-slate-50 w-full flex items-center justify-center">
+        <section ref={ref} id="experience" className="pt-10 pb-10 md:py-24 bg-white w-full flex items-center justify-center">
             <div className="w-full max-w-4xl mx-auto px-4">
                 <div className={`text-center mb-12 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}>
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Work Experience</h2>
