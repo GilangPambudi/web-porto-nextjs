@@ -5,7 +5,7 @@ import { technicalSkills, softSkills, Skill } from "@/lib/skills"
 import { useInView } from "@/hooks/use-in-view"
 
 const SkillItem = ({ skill }: { skill: Skill }) => (
-  <div className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 min-w-[100px] group/item cursor-default">
+  <div className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 min-w-24 group/item cursor-default">
     <skill.icon
       className={`w-10 h-10 md:w-12 md:h-12 mb-3 group-hover/item:scale-110 transition-transform duration-200`}
       style={{ color: skill.color }}
@@ -20,10 +20,10 @@ export default function SkillsSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
-    <section ref={ref} id="skills" className="py-16 md:py-24 bg-slate-100 relative overflow-hidden min-h-screen w-full flex items-center justify-center">
+    <section ref={ref} id="tech-stack" className="py-16 md:py-24 bg-white relative overflow-hidden min-h-screen w-full flex items-center justify-center">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className={`text-center mb-12 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tech Stack</h2>
         </div>
 
         <div className={`space-y-8 transition-all duration-1000 delay-150 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngalam Folding Bike - Official</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            /* Slate 900 */
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .grotesk {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* --- GLOBAL UTILS --- */
+        :root {
+            --nav-height: 80px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        /* --- SECTION 1: SILHOUETTE --- */
+        #pin-container {
+            height: 400vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        .silhouette-sticky-view {
+            position: sticky;
+            top: var(--nav-height);
+            height: calc(100vh - var(--nav-height));
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+        }
+
+        .bike-train-wrapper {
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+            width: 100%;
+            transform: translateX(-120%);
+            will-change: transform;
+        }
+
+        .silhouette-img {
+            filter: grayscale(100%) brightness(0.3) contrast(1.2);
+            mix-blend-mode: luminosity;
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            width: 100%;
+            height: auto;
+        }
+
+        /* --- SECTION 2: THE CARD DEAL (NEW CONCEPT) --- */
+        #deal-trigger {
+            height: 400vh;
+            /* Durasi scroll panjang untuk 3 kartu */
+            position: relative;
+            z-index: 20;
+            background: #0f172a;
+        }
+
+        .deal-sticky {
+            position: sticky;
+            top: var(--nav-height);
+            height: calc(100vh - var(--nav-height));
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        /* Meja Kartu (Invisible Container) */
+        .card-table {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Base Style Kartu Deal */
+        .deal-card {
+            position: absolute;
+            width: 280px;
+            height: 420px;
+            /* Rasio Kartu Poker */
+            background: #1e293b;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            will-change: transform, opacity;
+
+            /* Initial State (Hidden/Offscreen) */
+            opacity: 0;
+            transform: translate(0, 100vh) rotate(0deg) scale(0.5);
+        }
+
+        .deal-card img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            border-bottom: 1px solid #334155;
+        }
+
+        .deal-content {
+            padding: 20px;
+            text-align: center;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- SECTION 3: STACKED CARDS --- */
+        .stack-area {
+            padding-bottom: 10vh;
+        }
+
+        .card-container {
+            position: sticky;
+            top: var(--nav-height);
+            height: calc(100vh - var(--nav-height));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-con-1 {
+            top: var(--nav-height);
+        }
+
+        .card-con-2 {
+            top: calc(var(--nav-height) + 20px);
+        }
+
+        .card-con-3 {
+            top: calc(var(--nav-height) + 40px);
+        }
+
+        .card {
+            width: 90%;
+            max-width: 1000px;
+            height: 60vh;
+            border-radius: 24px;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+            transform-origin: top center;
+            transition: transform 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-1 {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        .card-2 {
+            background: linear-gradient(135deg, #334155, #1e293b);
+        }
+
+        .card-3 {
+            background: linear-gradient(135deg, #2563eb, #1e3a8a);
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            transition: transform 0.7s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav
+        class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-slate-900/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="font-bold text-xl tracking-tighter flex items-center gap-2">
+            <i data-lucide="bike" class="text-blue-500"></i>
+            NFB<span class="text-blue-500">.</span>
+        </div>
+        <button
+            class="bg-white text-slate-900 px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-500 hover:text-white transition-colors">
+            Gabung
+        </button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header
+        class="relative w-full h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden z-20 bg-slate-900 pt-20">
+        <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541625602330-2277a4c46182?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+
+        <div class="relative z-10 max-w-4xl">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest mb-4 border border-blue-500/30">
+                EST. 2015 - MALANG
+            </span>
+            <h1 class="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight leading-none grotesk">
+                NGALAM<br>FOLDING BIKE
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+                Komunitas pecinta sepeda lipat terbesar di Kota Malang.
+                Menjelajah sudut kota, menaklukkan tanjakan, menyambung persaudaraan.
+            </p>
+        </div>
+        <div class="absolute bottom-10 animate-bounce">
+            <i data-lucide="chevrons-down" class="text-slate-500"></i>
+        </div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section class="py-24 px-6 bg-slate-900 border-t border-slate-800 relative z-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Lebih Dari Sekadar Gowes</h2>
+            <p class="text-slate-400 leading-relaxed text-lg">
+                Kami percaya bahwa sepeda lipat adalah simbol fleksibilitas. NFB hadir sebagai wadah bagi siapa saja
+                untuk menikmati keindahan Malang Raya.
+            </p>
+        </div>
+    </section>
+
+    <!-- === SECTION 1: SILHOUETTE === -->
+    <div id="pin-container">
+        <div class="silhouette-sticky-view">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <h2
+                    class="text-[10vw] md:text-[12vw] font-black text-slate-800/50 whitespace-nowrap tracking-tighter uppercase select-none grotesk">
+                    ONE PASSION ONE RIDE
+                </h2>
+            </div>
+            <div class="bike-train-wrapper" id="horizontal-mover">
+                <img src="https://i.postimg.cc/vZR3rs1n/image-removebg-preview.png" alt="Cyclist Silhouette"
+                    class="silhouette-img w-full">
+            </div>
+        </div>
+    </div>
+
+    <!-- === SECTION 2: THE CARD DEAL (SCATTERED) === -->
+    <div id="deal-trigger">
+        <div class="deal-sticky">
+
+            <div class="text-center mb-8 absolute top-10 w-full z-10" id="deal-title">
+                <p class="text-blue-500 text-xs font-bold tracking-[0.3em] uppercase">What We Do</p>
+                <h2 class="text-3xl font-bold text-white mt-2">UNLOCK THE EXPERIENCE</h2>
+            </div>
+
+            <!-- The Table -->
+            <div class="card-table">
+
+                <!-- CARD 1: KULINER (Kiri) -->
+                <div class="deal-card" id="d-card-1">
+                    <img src="https://images.unsplash.com/photo-1505705693723-d3a5e02df0c2?q=80&w=2070&auto=format&fit=crop"
+                        alt="Kuliner">
+                    <div class="deal-content">
+                        <i data-lucide="utensils" class="w-6 h-6 text-blue-400 mx-auto mb-2"></i>
+                        <h3 class="text-lg font-bold text-white">KULINER</h3>
+                        <p class="text-xs text-slate-400 mt-1">Gowes cari sarapan soto.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: PASEDULURAN (Tengah) -->
+                <div class="deal-card" id="d-card-2" style="z-index: 20;"> <!-- Di atas card 1 -->
+                    <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?q=80&w=2070&auto=format&fit=crop"
+                        alt="Community">
+                    <div class="deal-content">
+                        <i data-lucide="users" class="w-6 h-6 text-blue-400 mx-auto mb-2"></i>
+                        <h3 class="text-lg font-bold text-white">PASEDULURAN</h3>
+                        <p class="text-xs text-slate-400 mt-1">Tak ada senioritas di sini.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: TANJAKAN (Kanan) -->
+                <div class="deal-card" id="d-card-3" style="z-index: 30;"> <!-- Di atas card 2 -->
+                    <img src="https://images.unsplash.com/photo-1596727147705-56077cd4162a?q=80&w=2069&auto=format&fit=crop"
+                        alt="Tanjakan">
+                    <div class="deal-content">
+                        <i data-lucide="mountain-snow" class="w-6 h-6 text-blue-400 mx-auto mb-2"></i>
+                        <h3 class="text-lg font-bold text-white">TANJAKAN</h3>
+                        <p class="text-xs text-slate-400 mt-1">Siap melahap elevasi.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="absolute bottom-10 text-xs text-slate-500 animate-pulse" id="deal-hint">DEALING CARDS...</p>
+
+        </div>
+    </div>
+
+    <!-- === SECTION 3: STACKED CARDS === -->
+    <div class="bg-slate-950 py-20 stack-area relative z-20">
+        <div class="text-center mb-10 px-4">
+            <h2 class="text-sm font-bold text-blue-500 tracking-widest uppercase mb-2">Our Journey</h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-white">Catatan Sejarah</h3>
+        </div>
+
+        <!-- CARD 1 -->
+        <div class="card-container card-con-1">
+            <div class="card card-1 border border-slate-700">
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?q=80&w=2070&auto=format&fit=crop"
+                        class="w-full h-full object-cover opacity-60" alt="Kayutangan">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-slate-400 text-sm mb-2 font-mono">MARCH 2022</div>
+                            <h2 class="text-3xl md:text-5xl font-bold mb-4">Kayutangan Heritage Ride</h2>
+                            <p class="text-slate-300 max-w-lg">Gowes santai menyusuri koridor sejarah.</p>
+                        </div>
+                        <div class="hidden md:block text-5xl font-bold text-slate-700">01</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card-container card-con-2">
+            <div class="card card-2 border border-slate-700">
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1623193217319-a10787a2249c?q=80&w=2069&auto=format&fit=crop"
+                        class="w-full h-full object-cover opacity-60" alt="Bromo">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-slate-400 text-sm mb-2 font-mono">AUGUST 2023</div>
+                            <h2 class="text-3xl md:text-5xl font-bold mb-4">Bromo KOM</h2>
+                            <p class="text-slate-300 max-w-lg">Ujian ketahanan kaki dan mental.</p>
+                        </div>
+                        <div class="hidden md:block text-5xl font-bold text-slate-700">02</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card-container card-con-3">
+            <div class="card card-3 border border-blue-400/50 shadow-[0_0_50px_rgba(37,99,235,0.3)]">
+                <div
+                    class="absolute top-6 right-6 bg-yellow-400 text-black px-4 py-1 rounded-full text-xs font-bold shadow-lg z-20">
+                    BIGGEST EVENT</div>
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1558507204-51e44f834244?q=80&w=2046&auto=format&fit=crop"
+                        class="w-full h-full object-cover opacity-70" alt="Jamselinas">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-blue-200 text-sm mb-2 font-mono">2024 - MALANG TUAN RUMAH</div>
+                            <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">JAMSELINAS 13</h2>
+                            <p class="text-white text-lg max-w-xl font-medium">3000+ Peserta berkumpul.</p>
+                        </div>
+                        <div class="hidden md:block text-6xl font-bold text-white/20">03</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-[50vh]"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 py-12 px-6 border-t border-slate-800 relative z-20">
+        <div class="text-center text-slate-600 text-xs">
+            &copy; 2026 Ngalam Folding Bike. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // === LOGIC 1: HORIZONTAL PIN ===
+        function updateSilhouette() {
+            const container = document.getElementById('pin-container');
+            const mover = document.getElementById('horizontal-mover');
+            if (!container || !mover) return;
+
+            const rect = container.getBoundingClientRect();
+            const stickyStart = 80;
+            const windowHeight = window.innerHeight;
+            const scrollableDistance = container.offsetHeight - windowHeight;
+            const scrolled = -(rect.top - stickyStart);
+
+            let progress = 0;
+            if (scrolled > 0) progress = scrolled / scrollableDistance;
+            if (progress < 0) progress = 0; if (progress > 1) progress = 1;
+
+            const startX = -120; const endX = 120;
+            const currentX = startX + (progress * (endX - startX));
+
+            if (rect.bottom > stickyStart && rect.top < windowHeight) {
+                mover.style.transform = `translateX(${currentX}%)`;
+            }
+        }
+
+        // === LOGIC 2: CARD DEAL (SCATTERED) ===
+        function updateDealing() {
+            const trigger = document.getElementById('deal-trigger');
+            const c1 = document.getElementById('d-card-1');
+            const c2 = document.getElementById('d-card-2');
+            const c3 = document.getElementById('d-card-3');
+            const hint = document.getElementById('deal-hint');
+
+            if (!trigger) return;
+
+            const rect = trigger.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const dist = trigger.offsetHeight - windowHeight;
+            const stickyStart = 80;
+            const scrolled = -(rect.top - stickyStart);
+
+            // Global Progress (0 to 1)
+            let p = 0;
+            if (scrolled > 0) p = scrolled / dist;
+            if (p < 0) p = 0; if (p > 1) p = 1;
+
+            if (rect.bottom > stickyStart && rect.top < windowHeight) {
+
+                // --- CARD 1 (0.0 - 0.3) ---
+                // Lempar ke Kiri (-15 deg)
+                let p1 = Math.min(Math.max(p / 0.3, 0), 1);
+                // Start: Y=100vh, Scale=0.5 | End: Y=0, Scale=1, Rot=-15, X=-200px
+                const y1 = 100 - (p1 * 100);
+                const s1 = 0.5 + (p1 * 0.5);
+                const r1 = p1 * -10; // Rotate kiri
+                const x1 = p1 * -100; // Geser kiri dikit (relative to center)
+                const o1 = p1 * 1;
+
+                c1.style.opacity = o1;
+                // Kita pakai unit vh untuk Y biar mental dari bawah layar
+                c1.style.transform = `translate(${x1}px, ${y1}vh) rotate(${r1}deg) scale(${s1})`;
+
+
+                // --- CARD 2 (0.3 - 0.6) ---
+                // Lempar ke Tengah-Atas (5 deg)
+                let p2 = Math.min(Math.max((p - 0.3) / 0.3, 0), 1);
+                const y2 = 100 - (p2 * 100);
+                const s2 = 0.5 + (p2 * 0.5);
+                const r2 = p2 * 5;
+                const x2 = 0;
+                const o2 = p2 * 1;
+                // Offset Y sedikit (-20px) biar tumpukannya enak dilihat
+                c2.style.opacity = o2;
+                c2.style.transform = `translate(${x2}px, calc(${y2}vh - 20px)) rotate(${r2}deg) scale(${s2})`;
+
+
+                // --- CARD 3 (0.6 - 0.9) ---
+                // Lempar ke Kanan (15 deg)
+                let p3 = Math.min(Math.max((p - 0.6) / 0.3, 0), 1);
+                const y3 = 100 - (p3 * 100);
+                const s3 = 0.5 + (p3 * 0.5);
+                const r3 = p3 * 15;
+                const x3 = p3 * 100; // Geser kanan
+                const o3 = p3 * 1;
+
+                c3.style.opacity = o3;
+                c3.style.transform = `translate(${x3}px, calc(${y3}vh + 10px)) rotate(${r3}deg) scale(${s3})`;
+
+                // Hint fade out
+                hint.style.opacity = 1 - (p * 3);
+            }
+        }
+
+        // === MASTER LOOP ===
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(() => {
+                updateSilhouette();
+                updateDealing();
+            });
+        });
+
+    </script>
+</body>
+
+</html>

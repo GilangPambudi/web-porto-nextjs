@@ -12,8 +12,10 @@ import {
     SiWordpress,
     SiGit,
     SiGithub,
-    SiLaravel
+    SiLaravel,
+    SiNodedotjs
 } from "react-icons/si"
+
 import {
     Brain,
     Users,
@@ -31,6 +33,7 @@ export const technicalSkills: Skill[] = [
     { name: "HTML", icon: SiHtml5, color: "#E34F26" },
     { name: "CSS", icon: SiCss3, color: "#1572B6" },
     { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
     { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
     { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
     { name: "Next.js", icon: SiNextdotjs, color: "#000000" },

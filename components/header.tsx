@@ -2,36 +2,33 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Github } from "lucide-react" // Removed ArrowRight import
+import { Home, User, Briefcase, Layers, Folder, Mail, Github, Menu, X } from "lucide-react"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
 
-  // Navigation items array for easier management
+  // Navigation items with Icons for Mobile Bottom Nav
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "skills", label: "Skills" },
-    { id: "portfolio", label: "Portfolio" },
+    { id: "home", label: "Home", icon: Home },
+    { id: "about", label: "About", icon: User },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    // { id: "tech-stack", label: "Stack", icon: Layers }, // Hidden
+    { id: "portfolio", label: "Portfolio", icon: Folder },
+    { id: "contact", label: "Contact", icon: Mail },
   ]
 
   useEffect(() => {
-    // Smooth scroll behavior for the entire page
     document.documentElement.style.scrollBehavior = "smooth"
 
     const handleScroll = () => {
-      // Set header background when scrolled
       if (window.scrollY > 10) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
       }
 
-      // Scroll spy functionality
       const sections = navItems.map((item) => item.id)
-
-      // Find the current active section
       let currentSection = "home"
       let minDistance = Number.POSITIVE_INFINITY
 
@@ -39,113 +36,74 @@ export default function Header() {
         const section = document.getElementById(sectionId)
         if (section) {
           const rect = section.getBoundingClientRect()
-          // Calculate distance from top of viewport
           const distance = Math.abs(rect.top)
-
-          // If this section is closer to the top than the previous closest, update
           if (distance < minDistance) {
             minDistance = distance
             currentSection = sectionId
           }
         }
       })
-
       setActiveSection(currentSection)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = "auto"
     }
   }, [navItems])
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? `bg-white shadow-md ${isMenuOpen ? "py-6" : "py-3"} md:py-5`
-        : `${isMenuOpen ? "py-8" : "py-5"} md:py-5 bg-transparent`
-        }`}
-    >
-      <div className="w-full md:w-4/5 mx-auto px-4">
-        <div className="flex justify-between items-center">
-          <Link href="#home" className="flex items-center text-2xl font-bold text-grey-800">
-            <span className="hidden md:inline">Gilang Pambudi Wibawanto</span>
-            <span className="md:hidden">Gilang</span>
+    <>
+      {/* --- DESKTOP HEADER (Top) --- */}
+      <header
+        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? "bg-white/70 backdrop-blur-md shadow-sm py-4"
+          : "bg-transparent py-6"
+          }`}
+      >
+        <div className="w-full md:w-4/5 mx-auto px-4 flex justify-between items-center">
+          <Link href="#home" className="text-2xl font-bold text-gray-900 tracking-tight">
+            Gilang<span className="text-blue-600">.</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 href={`/#${item.id}`}
-                className={`font-medium transition-colors ${activeSection === "landing"
-                  ? activeSection === item.id
-                    ? "text-white border-b-2 border-white"
-                    : "text-gray-200"
-                  : activeSection === item.id
-                    ? "text-secondary border-b-2 border-secondary"
-                    : "text-gray-800 hover:text-secondary"
+                className={`text font-medium transition-colors duration-200 ${activeSection === item.id
+                  ? "text-blue-600 font-bold"
+                  : "text-gray-600 hover:text-blue-600"
                   }`}
               >
                 {item.label}
               </Link>
             ))}
-            <a
-              href="https://github.com/gilangpambudi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-800 hover:text-secondary transition-colors"
-            >
-              <Github className="h-6 w-6" />
-            </a>
           </nav>
+        </div>
+      </header>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <a
-              href="https://github.com/gilangpambudi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-4 text-gray-800"
+
+
+      {/* --- MOBILE NAVIGATION (Bottom - Fixed) --- */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-t border-gray-200 pb-safe pt-2 px-2 shadow-[0_-5px_10px_rgba(0,0,0,0.05)]">
+        <div className="flex justify-around items-center">
+          {navItems.map((item) => (
+            <Link
+              key={item.id}
+              href={`/#${item.id}`}
+              className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 w-full ${activeSection === item.id
+                ? "text-blue-600"
+                : "text-gray-500 hover:text-gray-800"
+                }`}
             >
-              <Github className="h-5 w-5" />
-            </a>
-            <button className="text-gray-800" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+              <item.icon className={`h-6 w-6 mb-1 ${activeSection === item.id ? "" : ""}`} strokeWidth={activeSection === item.id ? 2.5 : 2} />
+              <span className="text-[10px] font-medium">{item.label}</span>
+            </Link>
+          ))}
         </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white mx-2 mt-2 rounded-lg shadow-lg">
-          <div className="w-full px-4 py-4">
-            <nav className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.id}
-                  href={`/#${item.id}`}
-                  className={`font-medium ${activeSection === "home"
-                    ? activeSection === item.id
-                      ? "text-blue-600"
-                      : "text-gray-600"
-                    : activeSection === item.id
-                      ? "text-blue-600"
-                      : "text-gray-800"
-                    }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </div>
-      )}
-    </header>
+      </nav>
+    </>
   )
 }
