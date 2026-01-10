@@ -4,9 +4,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { aboutData, heroData } from "@/lib/data"
 import { useInView } from "@/hooks/use-in-view"
+import { useState } from "react"
+import { PdfPreviewModal } from "@/components/ui/pdf-preview-modal"
 
 export default function AboutSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
+  const [selectedCert, setSelectedCert] = useState<{ url: string; title: string } | null>(null)
 
   return (
     <section ref={ref} id="about" className="pt-10 pb-10 md:py-24 bg-slate-50 relative overflow-hidden min-h-screen w-full flex items-center justify-center">
@@ -55,15 +58,13 @@ export default function AboutSection() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Certifications</h3>
                 <div className="flex flex-wrap gap-3">
                   {aboutData.certifications.map((cert, idx) => (
-                    <a
+                    <button
                       key={idx}
-                      href={cert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-blue-300 transition-colors"
+                      onClick={() => setSelectedCert({ url: cert.link, title: cert.name })}
+                      className="inline-flex items-center px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-blue-300 transition-colors cursor-pointer"
                     >
                       {cert.name}
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -71,6 +72,13 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
+
+      <PdfPreviewModal
+        isOpen={!!selectedCert}
+        onClose={() => setSelectedCert(null)}
+        pdfUrl={selectedCert?.url || ""}
+        title={selectedCert?.title || ""}
+      />
     </section>
   )
 }

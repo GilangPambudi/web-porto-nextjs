@@ -20,12 +20,12 @@ export const aboutData = {
     {
       name: "Junior Web Developer - BNSP",
       provider: "Badan Nasional Sertifikasi Profesi (BNSP)",
-      link: "https://drive.google.com/file/d/15eiZppecN9bE0Q5NUfyNxsKPKIaujYgo/view?usp=sharing",
+      link: "/certificates/BNSP.pdf",
     },
     {
       name: "TOEIC",
       provider: "",
-      link: "https://drive.google.com/file/d/11BVvQO_pewCSqIiyvweVcI0uAUY06k4A/view?usp=drive_link",
+      link: "/certificates/TOEIC.pdf",
     },
   ],
 };
