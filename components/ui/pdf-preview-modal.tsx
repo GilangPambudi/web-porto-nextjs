@@ -1,7 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
-// Note: DialogHeader saya skip biar kita bisa custom layout full width tanpa padding bawaan
+import { ZoomIn, ZoomOut, X, Maximize2 } from "lucide-react" // Pastikan install lucide-react
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface PdfPreviewModalProps {
     isOpen: boolean
@@ -11,38 +14,51 @@ interface PdfPreviewModalProps {
 }
 
 export function PdfPreviewModal({ isOpen, onClose, pdfUrl, title }: PdfPreviewModalProps) {
+    const [scale, setScale] = useState(1)
+
+    // Fungsi Zoom sederhana
+    const handleZoomIn = () => setScale((prev) => Math.min(prev + 0.25, 2.5)) // Max zoom 2.5x
+    const handleZoomOut = () => setScale((prev) => Math.max(prev - 0.25, 0.5)) // Min zoom 0.5x
+
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             {/* Changes:
-                1. max-w-5xl & w-[90vw]: Biar lebar hampir full screen.
-                2. h-[90vh]: Biar tinggi hampir full screen.
-                3. p-0: Hapus border putih/padding bawaan Shadcn (Borderless).
-                4. gap-0: Biar gak ada jarak antara header dan iframe.
-            */}
-            <DialogContent className="max-w-5xl w-[95vw] h-[95vh] flex flex-col p-0 gap-0 overflow-hidden sm:rounded-lg">
+        1. max-w-screen & h-screen: Full viewport
+        2. p-0 & border-none: Hilangkan padding & border default shadcn
+        3. bg-transparent: Supaya terlihat floating
+        4. [&>button]:hidden: Hide tombol close default bawaan shadcn (kita bikin sendiri)
+      */}
+            <DialogContent className="max-w-[95vw] h-[90vh] p-0 border-none bg-transparent shadow-none flex flex-col items-center justify-center [&>button]:hidden focus:outline-none">
 
-                {/* Custom Header biar Title di tengah */}
-                <div className="h-14 flex items-center justify-center border-b bg-white px-4 relative shrink-0">
-                    <DialogTitle className="text-center w-full truncate font-semibold">
+                {/* Hidden Title for Accessibility (Shadcn requires it, but we visually hide it or custom style it) */}
+                <DialogTitle className="sr-only">{title}</DialogTitle>
+
+                {/* CUSTOM TOOLBAR (Floating Pill) */}
+                <div className="absolute top-4 z-50 flex items-center gap-2 px-4 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full text-white shadow-2xl border border-zinc-700/50 transition-all hover:bg-zinc-900">
+                    <span className="text-sm font-medium mr-2 max-w-[90%] truncate border-r border-gray-600 pr-4">
                         {title}
-                    </DialogTitle>
-                    {/* Close button bawaan Shadcn biasanya muncul absolute di pojok kanan, 
-                        jadi aman tidak perlu ditambah manual kecuali ketutup */}
+                    </span>
+
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8 text-white hover:bg-red-500/20 hover:text-red-400 rounded-full transition-colors"
+                        onClick={onClose}
+                    >
+                        <X className="h-4 w-4" />
+                    </Button>
                 </div>
 
-                {/* Container PDF */}
-                <div className="flex-1 w-full bg-gray-200 relative">
+                {/* PDF VIEWPORT */}
+                <div className="w-full h-full rounded-xl overflow-hidden bg-gray-900/50 backdrop-blur-sm relative flex items-center justify-center border border-white/10">
+                    {/* Wrapper untuk handling Zoom (Scale) */}
                     <iframe
-                        /* Change:
-                           Menghapus '#toolbar=0' agar fitur native Zoom, Select Text, 
-                           dan Print bawaan browser muncul.
-                           Ditambah '#view=FitH' agar PDF otomatis pas secara horizontal.
-                        */
-                        src={`${pdfUrl}#view=FitH`}
-                        className="w-full h-full block"
+                        src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                        className="w-full h-full rounded-lg shadow-2xl bg-gray-900"
                         title={title}
                     />
                 </div>
+
             </DialogContent>
         </Dialog>
     )
