@@ -18,6 +18,12 @@ const footerItems = [
   },
 ]
 
+const getYear = () => {
+  const date = new Date();
+  return date.getFullYear();
+}
+
+
 export default function Footer() {
   return (
     <footer className="py-8 md:py-6 bg-blue-900 text-white">
@@ -25,7 +31,7 @@ export default function Footer() {
         {/* Logo and Copyright */}
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
           <p className="text-sm md:text-base font-bold text-center sm:text-left">
-            © 2025 Gilang Pambudi Wibawanto – All Rights Reserved
+            © {getYear()} Gilang Pambudi Wibawanto – All Rights Reserved
           </p>
         </div>
 

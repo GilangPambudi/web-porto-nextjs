@@ -6,6 +6,7 @@ import { aboutData, heroData } from "@/lib/data"
 import { useInView } from "@/hooks/use-in-view"
 import { useState } from "react"
 import { PdfPreviewModal } from "@/components/ui/pdf-preview-modal"
+import ProfileCard from "@/components/ui/profile-card"
 
 export default function AboutSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
@@ -16,14 +17,14 @@ export default function AboutSection() {
       <div className="w-full md:w-4/5 mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className={`w-full md:w-1/2 mb-10 md:mb-0 transition-all duration-1000 ease-out ${isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
-            <div className="relative rounded-xl overflow-hidden">
-              <Image
-                src={heroData.image}
-                alt="Profile Picture"
-                width={300}
-                height={300}
-                className="mx-auto rounded-full shadow-lg object-cover md:w-72 md:h-72 w-60 h-60"
-                priority
+            <div className="relative w-full h-[500px] flex items-center justify-center">
+              <ProfileCard
+                enableMobileTilt
+                avatarUrl={heroData.image}
+                name={heroData.nickName}
+                title={heroData.title}
+                contactText="Contact Me"
+                onContactClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               />
             </div>
           </div>

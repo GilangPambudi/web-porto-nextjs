@@ -1,8 +1,16 @@
 export const heroData = {
   name: "Gilang Pambudi Wibawanto S.Tr.S.I.B", // Keep for SEO/Metadata if needed, or About
-  sloganLine1: "Let's Make Something",
-  sloganLine2: "Useful.",
-  subSlogan: "Crafting reliable digital experiences that matter.",
+  fullName: "Gilang Pambudi Wibawanto",
+  nickName: "Gilang Pambudi W.",
+  title: "Web Developer",
+  sloganLine1: "Let's Make Something Useful.",
+  sloganLine2: "Let's Make Something Useful.",
+  subSlogan: [
+    "Web Developer",
+    "Software Engineer",
+    "Freelancer",
+    "IT Operations",
+  ],
   image: "/profil.jpeg", // Using existing image path
   cv: "/cv-gilang.pdf", // Assumption, placeholder
 };

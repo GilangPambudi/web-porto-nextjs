@@ -2,10 +2,10 @@
 
 import { heroData } from "@/lib/data"
 import { ChevronDown } from "lucide-react"
-import { useTypewriter } from "@/hooks/use-typewriter"
+import TextType from "@/components/ui/text-type"
 
 export default function HeroSection() {
-  const { text, isBlinking } = useTypewriter(heroData.sloganLine2)
+
 
   return (
     <section id="home" className="relative h-screen w-full flex flex-col items-center justify-start pt-48 md:justify-center md:pt-0 bg-white overflow-hidden">
@@ -16,16 +16,26 @@ export default function HeroSection() {
       <div className="w-full max-w-5xl mx-auto px-4 relative z-10 text-center">
         <div className="animate-in fade-in zoom-in duration-1000 ease-out">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 tracking-tighter mb-6 leading-tight min-h-[1.2em]">
-            {heroData.sloganLine1}
-            <br />
-            <span>
-              {text}
-            </span>
-            <span className={`inline-block w-1 h-[1em] bg-gray-900 ml-1 align-middle ${isBlinking ? "animate-blink" : ""}`}></span>
+            <TextType
+              text={[heroData.sloganLine1, heroData.sloganLine2]}
+              as="span"
+              variableSpeed={{ min: 50, max: 100 }}
+              deletingSpeed={50}
+              pauseDuration={500}
+              cursorCharacter="|"
+              cursorClassName="text-gray-900 ml-1"
+            />
           </h1>
-          <p className="text-xl md:text-2xl text-gray-500 font-light max-w-2xl mx-auto">
-            {heroData.subSlogan}
-          </p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
+            {heroData.subSlogan.map((role, index) => (
+              <span
+                key={index}
+                className="px-4 py-2 rounded-full border border-gray-200 bg-white/50 backdrop-blur-sm text-gray-600 text-sm md:text-base font-medium hover:bg-white hover:border-gray-300 transition-all cursor-default"
+              >
+                {role}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
