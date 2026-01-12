@@ -3,8 +3,9 @@
 import { contactData } from "@/lib/data"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, Linkedin, Globe, MapPin, Send } from "lucide-react"
+import { Mail, Phone, Linkedin, Globe, MapPin, Send, ExternalLink } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
+import { toast } from "sonner"
 
 export default function ContactSection() {
     const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
@@ -30,18 +31,24 @@ export default function ContactSection() {
                             <div className="flex flex-row md:flex-col justify-center md:justify-start gap-8 md:gap-0 md:space-y-6">
                                 {/* Email */}
                                 <div className="flex items-center md:items-start md:space-x-4">
-                                    <a
-                                        href={`mailto:${contactData.email}`}
-                                        className="bg-blue-100 p-3 rounded-full text-blue-600 shrink-0 hover:bg-blue-200 transition-colors"
-                                        aria-label="Email"
+                                    <div
+                                        className="bg-blue-100 p-3 rounded-full text-blue-600 shrink-0"
                                     >
                                         <Mail className="w-5 h-5" />
-                                    </a>
+                                    </div>
                                     <div className="hidden md:block">
                                         <p className="text-sm font-medium text-gray-500">Email</p>
-                                        <a href={`mailto:${contactData.email}`} className="text-gray-900 font-semibold hover:text-blue-600 transition-colors">
-                                            {contactData.email}
-                                        </a>
+                                        <div className="flex items-center space-x-2">
+                                            <button
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(contactData.email)
+                                                    toast.success("Email copied to clipboard")
+                                                }}
+                                                className="text-gray-900 font-semibold hover:text-blue-600 transition-colors text-left"
+                                            >
+                                                {contactData.email}
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -51,15 +58,21 @@ export default function ContactSection() {
                                         href={contactData.linkedin}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-blue-50 p-3 rounded-full text-blue-700 shrink-0 hover:bg-blue-100 transition-colors"
+                                        className="bg-blue-50 p-3 rounded-full text-blue-700 shrink-0 hover:bg-blue-100 transition-colors group"
                                         aria-label="LinkedIn"
                                     >
                                         <Linkedin className="w-5 h-5" />
                                     </a>
                                     <div className="hidden md:block">
                                         <p className="text-sm font-medium text-gray-500">LinkedIn</p>
-                                        <a href={contactData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold hover:text-blue-700 transition-colors">
-                                            linkedin.com/in/gilang-pambudi
+                                        <a
+                                            href={contactData.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group flex items-center space-x-2 text-gray-900 font-semibold hover:text-blue-700 transition-colors"
+                                        >
+                                            <span>Connect on LinkedIn</span>
+                                            <ExternalLink className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                                         </a>
                                     </div>
                                 </div>

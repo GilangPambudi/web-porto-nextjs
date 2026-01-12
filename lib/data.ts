@@ -190,7 +190,7 @@ export const portfolioItems = [
 ];
 
 export const contactData = {
-  email: "gilangpambudiwibawanto@gmail.com",
+  email: "gilang@pambudi.site",
   phone: "+62 812-4942-7072",
   linkedin: "https://linkedin.com/in/gilang-pambudi",
   website: "https://pambudi.site/",
