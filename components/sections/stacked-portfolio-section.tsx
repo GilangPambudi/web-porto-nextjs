@@ -6,15 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Lock } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
+import { useStackedCards } from "@/hooks/use-stacked-cards"
 
 export default function StackedPortfolioSection() {
     const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
+    const { containerRef } = useStackedCards()
 
     return (
         <section
             ref={ref}
             id="portfolio"
-            className="bg-slate-50 pt-10 pb-24 relative z-20 min-h-screen"
+            className="bg-slate-50 pt-24 pb-24 relative z-20"
         >
             {/* Header */}
             <div className="text-center mb-6 px-4">
@@ -24,19 +26,20 @@ export default function StackedPortfolioSection() {
             </div>
 
             {/* Stack Area */}
-            <div className="w-full px-4 md:px-0">
+            <div ref={containerRef} className="w-full px-4 md:px-0">
                 {portfolioItems.map((item, index) => (
                     <div
                         key={index}
-                        className="sticky flex justify-center items-start pt-6"
+                        className="portfolio-card sticky flex justify-center items-start pt-6 will-change-transform"
                         style={{
                             top: `calc(70px + ${index * 20}px)`,
-                            minHeight: '400px' // Ensure enough scroll space
+                            zIndex: index + 1,
+                            minHeight: '400px'
                         }}
                     >
                         {/* Card */}
                         <div
-                            className="relative w-full md:w-[90%] max-w-[1100px] bg-white rounded-[20px] overflow-hidden border border-slate-200 shadow-sm transition-transform duration-500 origin-top flex flex-col md:flex-row"
+                            className="relative w-full md:w-[90%] max-w-[1100px] bg-white rounded-[20px] overflow-hidden border border-slate-200 shadow-lg transition-shadow duration-500 origin-top flex flex-col md:flex-row"
                         >
                             {/* Image Section - Enforcing 1901/868 Aspect Ratio */}
                             <div className="relative w-full md:w-[65%] aspect-[1901/868] shrink-0 bg-slate-100 group overflow-hidden border-b md:border-b-0 md:border-r border-slate-100">
