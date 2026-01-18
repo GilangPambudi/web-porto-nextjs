@@ -47,7 +47,7 @@ export const experienceData = [
     description: [
       "Developed the event landing page using Next.js and Shadcn UI.",
       "Implemented map routing features using OpenStreetMap and ensured mobile responsiveness.",
-      "Used as the main registration gateway by 700+ registered participants.",
+      "Used as the main registration gateway by 1.500+ registered participants.",
     ],
   },
   {
@@ -69,7 +69,7 @@ export const experienceData = [
     description: [
       "Developed the event landing page for Folding Ngalam Freedom for All.",
       "Implemented responsive front-end layout and handled UI-related fixes.",
-      "Handled a live event landing page used by 200+ participants.",
+      "Handled a live event landing page used by 100+ participants.",
     ],
   },
   {
