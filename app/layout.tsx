@@ -7,8 +7,8 @@ export const metadata: Metadata = {
     default: 'Gilang Pambudi Wibawanto',
     template: '%s | Gilang Pambudi Wibawanto',
   },
-  description: 'Portfolio of Gilang Pambudi Wibawanto, a Web Developer specializing in Next.js, React, and modern web technologies.',
-  keywords: ['Gilang Pambudi Wibawanto', 'Web Developer', 'Next.js', 'React', 'Portfolio', 'Frontend Developer', 'Software Engineer'],
+  description: 'Web Developer with internship and freelance experience building event platforms and landing pages. Skilled in full-cycle web development, capable of managing live systems and production traffic under tight deadlines.',
+  keywords: ['Gilang Pambudi Wibawanto', 'Gilang Pambudi', 'Gilang', 'Pambudi', 'Wibawanto', 'Gilang Polinema', 'Gilang Pambudi Polinema', 'Web Developer', 'Next.js', 'React', 'Portfolio', 'Frontend Developer', 'Software Engineer', 'Freelancer', 'IT Operations'],
   authors: [{ name: 'Gilang Pambudi Wibawanto' }],
   creator: 'Gilang Pambudi Wibawanto',
   icons: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   openGraph: {
     title: 'Gilang Pambudi Wibawanto',
-    description: 'Portfolio of Gilang Pambudi Wibawanto, a Web Developer specializing in Next.js, React, and modern web technologies.',
+    description: 'Web Developer with internship and freelance experience building event platforms and landing pages. Skilled in full-cycle web development, capable of managing live systems and production traffic under tight deadlines.',
     url: 'https://pambudi.site',
     siteName: 'Gilang Pambudi Wibawanto',
     images: [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Gilang Pambudi Wibawanto',
-    description: 'Portfolio of Gilang Pambudi Wibawanto, a Web Developer specializing in Next.js, React, and modern web technologies.',
+    description: 'Web Developer with internship and freelance experience building event platforms and landing pages. Skilled in full-cycle web development, capable of managing live systems and production traffic under tight deadlines.',
     images: ['/android-chrome-512x512.png'],
   },
   robots: {
@@ -81,7 +81,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Toaster position="top-center" />
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   )

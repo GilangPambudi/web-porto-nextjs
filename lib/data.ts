@@ -16,7 +16,7 @@ export const heroData = {
 };
 
 export const aboutData = {
-  bio: "I am a web developer with internship and freelance experience as a Web Developer. Experienced in building event websites and landing pages for large-scale events serving over 3,000 participants, with a focus on responsive UI and clear information delivery.",
+  bio: "Web Developer with internship and freelance experience building event platforms and landing pages. Proficient in Next.js, React, Tailwind CSS, WordPress, Laravel, and PHP, and basic Node.js knowledge. Experienced in managing live systems and production traffic under tight deadlines.",
   education: {
     institution: "State Polytechnic of Malang",
     degree: "Applied Bachelor of Business Information Systems",
