@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gilang Pambudi Wibawanto',
     description: 'Web Developer with internship and freelance experience building event platforms and landing pages. Skilled in full-cycle web development, capable of managing live systems and production traffic under tight deadlines.',
-    url: 'https://pambudi.site',
+    url: 'https://pambudi.dev',
     siteName: 'Gilang Pambudi Wibawanto',
     images: [
       {

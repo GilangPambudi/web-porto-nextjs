@@ -2,7 +2,7 @@
 
 Malang, East Java | [gilangpambudiwibawanto@gmail.com](mailto:gilangpambudiwibawanto@gmail.com) | +62 812-4942-7072 |
 
-[linkedin.com/in/gilang-pambudi](https://linkedin.com/in/gilang-pambudi) | [pambudi.site](https://pambudi.site/)
+[linkedin.com/in/gilang-pambudi](https://linkedin.com/in/gilang-pambudi) | [pambudi.dev](https://pambudi.dev/)
 
 I am a web developer with internship and freelance experience as a Web Developer. Experienced in building event websites and landing pages for large-scale events serving over 3.000 participants, with a focus on responsive UI and clear information delivery.
 

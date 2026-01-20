@@ -16,7 +16,7 @@ export const heroData = {
 };
 
 export const aboutData = {
-  bio: "Web Developer with internship and freelance experience building event platforms and landing pages. Proficient in Next.js, React, Tailwind CSS, WordPress, Laravel, and PHP, and basic Node.js knowledge. Experienced in managing live systems and production traffic under tight deadlines.",
+  bio: "Web Developer with experience building event platforms and landing pages. Proficient in Next.js, React, Tailwind CSS, WordPress, Laravel, and PHP, and basic Node.js knowledge. Experienced in managing live systems and production traffic under tight deadlines.",
   education: {
     institution: "State Polytechnic of Malang",
     degree: "Applied Bachelor of Business Information Systems",
@@ -127,7 +127,7 @@ export const portfolioItems = [
     description:
       "A modern property and occupant management system built with Laravel and React.",
     image: "/pams.webp",
-    link: "https://pams.pambudi.site/",
+    link: "https://pams.pambudi.dev/",
     alt: "pams",
   },
   {
@@ -135,7 +135,7 @@ export const portfolioItems = [
     description:
       "Search About Phone Informations & Models, connected with phone codename repository.",
     image: "/seraphim.webp",
-    link: "https://seraphim.pambudi.site/",
+    link: "https://seraphim.pambudi.dev/",
     alt: "seraphim",
   },
   {
@@ -176,7 +176,7 @@ export const portfolioItems = [
     description:
       "Find out which Instagram accounts you follow that don't follow you back.",
     image: "/imud.png",
-    link: "https://imud.pambudi.site/",
+    link: "https://imud.pambudi.dev/",
     alt: "imud",
   },
   {
@@ -190,9 +190,9 @@ export const portfolioItems = [
 ];
 
 export const contactData = {
-  email: "gilang@pambudi.site",
+  email: "gilang@pambudi.dev",
   phone: "+62 812-4942-7072",
   linkedin: "https://linkedin.com/in/gilang-pambudi",
-  website: "https://pambudi.site/",
+  website: "https://pambudi.dev/",
   location: "Malang, East Java",
 };
