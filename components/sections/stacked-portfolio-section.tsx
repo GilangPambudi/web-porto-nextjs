@@ -32,14 +32,14 @@ export default function StackedPortfolioSection() {
                         key={index}
                         className="portfolio-card sticky flex justify-center items-start pt-6 will-change-transform"
                         style={{
-                            top: `calc(70px + ${index * 20}px)`,
+                            top: `calc(8vh + ${index * 0.75}rem)`,
                             zIndex: index + 1,
-                            minHeight: '400px'
+                            minHeight: '50vh'
                         }}
                     >
                         {/* Card */}
                         <div
-                            className="relative w-full md:w-[90%] max-w-[1100px] bg-white rounded-[20px] overflow-hidden border border-slate-200 shadow-lg transition-shadow duration-500 origin-top flex flex-col md:flex-row"
+                            className="relative w-full md:w-[90%] max-w-[70rem] bg-white rounded-[20px] overflow-hidden border border-slate-200 shadow-lg transition-shadow duration-500 origin-top flex flex-col md:flex-row"
                         >
                             {/* Image Section - Enforcing 1901/868 Aspect Ratio */}
                             <div className="relative w-full md:w-[65%] aspect-[1901/868] shrink-0 bg-slate-100 group overflow-hidden border-b md:border-b-0 md:border-r border-slate-100">
