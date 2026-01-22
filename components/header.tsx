@@ -55,24 +55,24 @@ export default function Header() {
 
   return (
     <>
-      {/* --- DESKTOP HEADER (Top) --- */}
+      {/* --- DESKTOP HEADER (Floating) --- */}
       <header
-        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-white/70 backdrop-blur-md shadow-sm py-4"
-          : "bg-transparent py-6"
+        className={`hidden md:block w-[90%] py-4 fixed top-2 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full border ${isScrolled
+          ? "bg-white/60 backdrop-blur-md shadow-lg border-gray-200 py-3 top-4 px-8 w-[70%]"
+          : "bg-white/50 backdrop-blur-sm border-transparent py-4 px-10"
           }`}
       >
-        <div className="w-full md:w-4/5 mx-auto px-4 flex justify-between items-center">
-          <Link href="#home" className="text-2xl font-bold text-gray-900 tracking-tight">
+        <div className="flex justify-between items-center space-x-12">
+          <Link href="#home" className="text-xl font-bold text-gray-900 tracking-tight">
             Gilang<span className="text-blue-600">.</span>
           </Link>
 
-          <nav className="flex items-center space-x-8">
+          <nav className="flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 href={`/#${item.id}`}
-                className={`text font-medium transition-colors duration-200 ${activeSection === item.id
+                className={`font-medium transition-colors duration-200 ${activeSection === item.id
                   ? "text-blue-600 font-bold"
                   : "text-gray-600 hover:text-blue-600"
                   }`}
@@ -86,20 +86,20 @@ export default function Header() {
 
 
 
-      {/* --- MOBILE NAVIGATION (Bottom - Fixed) --- */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-t border-gray-200 pb-safe pt-2 px-2 shadow-[0_-5px_10px_rgba(0,0,0,0.05)]">
+      {/* --- MOBILE NAVIGATION (Bottom - Floating) --- */}
+      <nav className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] z-50 bg-white/60 backdrop-blur-md border border-gray-200 rounded-full px-4 py-2 shadow-lg">
         <div className="flex justify-around items-center">
           {navItems.map((item) => (
             <Link
               key={item.id}
               href={`/#${item.id}`}
-              className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 w-full ${activeSection === item.id
+              className={`flex flex-col items-center justify-center p-2 rounded-full transition-all duration-200 ${activeSection === item.id
                 ? "text-blue-600"
                 : "text-gray-500 hover:text-gray-800"
                 }`}
             >
-              <item.icon className={`h-6 w-6 mb-1 ${activeSection === item.id ? "" : ""}`} strokeWidth={activeSection === item.id ? 2.5 : 2} />
-              <span className="text-[10px] font-medium">{item.label}</span>
+              <item.icon className={`h-5 w-5 mb-0.5 ${activeSection === item.id ? "fill-blue-100" : ""}`} strokeWidth={activeSection === item.id ? 2.5 : 2} />
+              <span className="text-[9px] font-medium">{item.label}</span>
             </Link>
           ))}
         </div>
