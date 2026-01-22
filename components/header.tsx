@@ -58,7 +58,7 @@ export default function Header() {
       {/* --- DESKTOP HEADER (Floating) --- */}
       <header
         className={`hidden md:block fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full border ${isScrolled
-          ? "top-4 w-[70%] bg-white/80 backdrop-blur-md shadow-lg border-gray-200 py-4 px-8"
+          ? "top-4 w-[80%] bg-white/80 backdrop-blur-md shadow-lg border-gray-200 py-4 px-8"
           : "top-4 w-[90%] bg-white/50 backdrop-blur-sm border-transparent py-4 px-10"
           }`}
       >
