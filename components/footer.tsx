@@ -26,7 +26,7 @@ const getYear = () => {
 
 export default function Footer() {
   return (
-    <footer className="py-8 md:py-6 bg-blue-900 text-white">
+    <footer className="pt-8 pb-24 md:py-6 bg-blue-900 text-white">
       <div className="w-full md:w-4/5 mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Logo and Copyright */}
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
