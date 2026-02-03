@@ -16,7 +16,7 @@ export default function ContactSection() {
                 <div className={`text-center mb-12 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}>
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
                     <p className="text-gray-500 max-w-xl mx-auto">
-                        Feel free to reach out if you're interested in working together or have any questions.
+                        Feel free to reach out if you&apos;re interested in working together or have any questions.
                     </p>
                 </div>
 
@@ -101,7 +101,7 @@ export default function ContactSection() {
                             </div>
                             <h3 className="text-2xl font-bold">Ready to Start?</h3>
                             <p className="text-white/80 leading-relaxed">
-                                I'm currently available for freelance projects and job opportunities. Let's build something amazing together.
+                                I&apos;m currently available for freelance projects and job opportunities. Let&apos;s build something amazing together.
                             </p>
                             <div className="pt-4">
                                 <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50 font-bold px-8">

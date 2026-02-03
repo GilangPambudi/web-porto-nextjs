@@ -70,6 +70,8 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^15.5.11",
     "postcss": "^8",
     "shadcn": "^3.6.3",
     "tailwindcss": "^3.4.17",
