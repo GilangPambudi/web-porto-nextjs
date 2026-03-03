@@ -2,9 +2,9 @@
 
 import Image from "next/image"
 import { portfolioItems } from "@/lib/data"
-import { Button } from "@/components/ui/button"
+import PortfolioActionButton from "@/components/ui/portfolio-action-button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Lock } from "lucide-react"
+import { Lock } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 import { useStackedCards } from "@/hooks/use-stacked-cards"
 
@@ -69,18 +69,11 @@ export default function StackedPortfolioSection() {
                                     </p>
 
                                     <div className="pt-2">
-                                        {item.isPrivate ? (
-                                            <Button disabled className="w-full md:w-auto bg-slate-100 text-slate-400 hover:bg-slate-100">
-                                                <Lock className="w-4 h-4 mr-2" />
-                                                Private Project
-                                            </Button>
-                                        ) : (
-                                            <Button asChild className="w-full md:w-auto bg-blue-900 hover:bg-blue-800 text-white">
-                                                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                                    Visit Project <ExternalLink className="w-4 h-4 ml-2" />
-                                                </a>
-                                            </Button>
-                                        )}
+                                        <PortfolioActionButton
+                                            isPrivate={item.isPrivate}
+                                            link={item.link}
+                                            className="w-full md:w-auto"
+                                        />
                                     </div>
                                 </div>
                             </div>

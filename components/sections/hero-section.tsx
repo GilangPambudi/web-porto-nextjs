@@ -5,11 +5,8 @@ import { ChevronDown } from "lucide-react"
 import TextType from "@/components/ui/text-type"
 
 export default function HeroSection() {
-
-
   return (
     <section id="home" className="relative h-screen w-full flex flex-col items-center justify-start pt-48 md:justify-center md:pt-0 bg-white overflow-hidden">
-      {/* Background decoration (optional - can be removed for minimal look) */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl opacity-50"></div>
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-purple-100/50 rounded-full blur-3xl opacity-50"></div>
 

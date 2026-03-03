@@ -3,7 +3,7 @@
 import { contactData } from "@/lib/data"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, Linkedin, Globe, MapPin, Send, ExternalLink } from "lucide-react"
+import { Mail, Linkedin, MapPin, Send, ExternalLink } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 import { toast } from "sonner"
 
@@ -40,9 +40,13 @@ export default function ContactSection() {
                                         <p className="text-sm font-medium text-gray-500">Email</p>
                                         <div className="flex items-center space-x-2">
                                             <button
-                                                onClick={() => {
-                                                    navigator.clipboard.writeText(contactData.email)
-                                                    toast.success("Email copied to clipboard")
+                                                onClick={async () => {
+                                                    try {
+                                                        await navigator.clipboard.writeText(contactData.email)
+                                                        toast.success("Email copied to clipboard")
+                                                    } catch {
+                                                        toast.error("Failed to copy email")
+                                                    }
                                                 }}
                                                 className="text-gray-900 font-semibold hover:text-blue-600 transition-colors text-left"
                                             >

@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { technicalSkills, softSkills, Skill } from "@/lib/skills"
 import { useInView } from "@/hooks/use-in-view"
+import Marquee from "@/components/ui/marquee"
 
 const SkillItem = ({ skill }: { skill: Skill }) => (
   <div className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 min-w-24 group/item cursor-default">
@@ -35,18 +36,11 @@ export default function SkillsSection() {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
-              <div className="flex overflow-hidden">
-                <div className="flex shrink-0 animate-marquee items-center gap-4 pr-4 [--gap:1rem] [--duration:40s] group-hover:[animation-play-state:paused]">
-                  {technicalSkills.map((skill, index) => (
-                    <SkillItem key={index} skill={skill} />
-                  ))}
-                </div>
-                <div aria-hidden="true" className="flex shrink-0 animate-marquee items-center gap-4 pr-4 [--gap:1rem] [--duration:40s] group-hover:[animation-play-state:paused]">
-                  {technicalSkills.map((skill, index) => (
-                    <SkillItem key={`dup-${index}`} skill={skill} />
-                  ))}
-                </div>
-              </div>
+              <Marquee pauseOnHover className="[--gap:1rem]">
+                {technicalSkills.map((skill, index) => (
+                  <SkillItem key={index} skill={skill} />
+                ))}
+              </Marquee>
             </CardContent>
             {/* Gradient Fade */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white to-transparent dark:from-background"></div>
@@ -69,18 +63,11 @@ export default function SkillsSection() {
               </div>
 
               {/* Mobile View: Marquee */}
-              <div className="md:hidden flex overflow-hidden">
-                <div className="flex shrink-0 animate-marquee items-center justify-around gap-4 pr-4 [--gap:1rem] [--duration:15s] group-hover:[animation-play-state:paused] min-w-full">
-                  {softSkills.map((skill, index) => (
-                    <SkillItem key={index} skill={skill} />
-                  ))}
-                </div>
-                <div aria-hidden="true" className="flex shrink-0 animate-marquee items-center justify-around gap-4 pr-4 [--gap:1rem] [--duration:15s] group-hover:[animation-play-state:paused] min-w-full">
-                  {softSkills.map((skill, index) => (
-                    <SkillItem key={`dup-${index}`} skill={skill} />
-                  ))}
-                </div>
-              </div>
+              <Marquee pauseOnHover duration="15s" className="md:hidden [--gap:1rem]">
+                {softSkills.map((skill, index) => (
+                  <SkillItem key={index} skill={skill} />
+                ))}
+              </Marquee>
             </CardContent>
             {/* Gradient Fade (Only visible on mobile when scrolling happens) */}
             <div className="md:hidden pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white to-transparent dark:from-background"></div>

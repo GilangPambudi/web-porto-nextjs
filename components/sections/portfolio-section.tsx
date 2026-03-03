@@ -4,8 +4,8 @@ import Image from "next/image"
 import { portfolioItems } from "@/lib/data"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Lock } from "lucide-react"
+import { Lock } from "lucide-react"
+import PortfolioActionButton from "@/components/ui/portfolio-action-button"
 import { useInView } from "@/hooks/use-in-view"
 
 export default function PortfolioSection() {
@@ -47,19 +47,11 @@ export default function PortfolioSection() {
                                 </p>
                             </CardContent>
                             <CardFooter className="pt-0 mt-auto">
-                                {item.isPrivate ? (
-                                    <Button disabled className="w-full bg-slate-200 text-slate-500">
-                                        <Lock className="w-4 h-4 mr-2" />
-                                        Private Project
-                                    </Button>
-                                ) : (
-                                    <Button asChild className="w-full bg-blue-900 hover:bg-blue-700">
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                            Visit Project
-                                            <ExternalLink className="w-4 h-4 ml-2" />
-                                        </a>
-                                    </Button>
-                                )}
+                                <PortfolioActionButton
+                                    isPrivate={item.isPrivate}
+                                    link={item.link}
+                                    className="w-full"
+                                />
                             </CardFooter>
                         </Card>
                     ))}

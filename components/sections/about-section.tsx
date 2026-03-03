@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+
 import Image from "next/image"
 import { aboutData, heroData } from "@/lib/data"
 import { useInView } from "@/hooks/use-in-view"

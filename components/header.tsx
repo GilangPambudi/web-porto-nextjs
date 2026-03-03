@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Home, User, Briefcase, Layers, Folder, Mail, Github, Menu, X } from "lucide-react"
+import { Home, User, Briefcase, Layers, Folder, Mail } from "lucide-react"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -22,7 +22,8 @@ export default function Header() {
     document.documentElement.style.scrollBehavior = "smooth"
 
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      const SCROLL_THRESHOLD = 10
+      if (window.scrollY > SCROLL_THRESHOLD) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)

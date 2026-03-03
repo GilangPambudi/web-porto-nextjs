@@ -1,4 +1,16 @@
-export const heroData = {
+export interface HeroData {
+  name: string;
+  fullName: string;
+  nickName: string;
+  title: string;
+  sloganLine1: string;
+  sloganLine2: string;
+  subSlogan: string[];
+  image: string;
+  cv: string;
+}
+
+export const heroData: HeroData = {
   name: "Gilang Pambudi Wibawanto S.Tr.S.I.B", // Keep for SEO/Metadata if needed, or About
   fullName: "Gilang Pambudi Wibawanto",
   nickName: "Gilang Pambudi W.",
@@ -15,7 +27,27 @@ export const heroData = {
   cv: "/cv-gilang.pdf", // Assumption, placeholder
 };
 
-export const aboutData = {
+export interface EducationItem {
+  institution: string;
+  degree: string;
+  period: string;
+  gpa: string;
+  coursework: string;
+}
+
+export interface CertificationItem {
+  name: string;
+  provider: string;
+  link: string;
+}
+
+export interface AboutData {
+  bio: string;
+  education: EducationItem;
+  certifications: CertificationItem[];
+}
+
+export const aboutData: AboutData = {
   bio: "Web Developer with experience building event platforms and landing pages. Proficient in Next.js, React, Tailwind CSS, WordPress, Laravel, and PHP, and basic Node.js knowledge. Experienced in managing live systems and production traffic under tight deadlines.",
   education: {
     institution: "State Polytechnic of Malang",
@@ -38,7 +70,27 @@ export const aboutData = {
   ],
 };
 
-export const experienceData = [
+export interface ExperienceItem {
+  company: string;
+  role: string;
+  period: string;
+  type: string;
+  description: string[];
+  project?: string;
+}
+
+export const experienceData: ExperienceItem[] = [
+  {
+    company: "PT Green Energi Utama",
+    role: "Software Developer Staff",
+    period: "Feb 2026 - Present",
+    type: "Contract",
+    description: [
+      "Developed and maintained features in the Enterprise Resource Planning (ERP) system using CodeIgniter.",
+      "Conducted comprehensive testing including unit tests and integration tests.",
+      "Collaborated with team members to resolve bugs and improve system functionality.",
+    ],
+  },
   {
     company: "SMADATARA Run 2026",
     role: "Freelance Web Developer",
@@ -57,8 +109,8 @@ export const experienceData = [
     period: "Sep - Dec 2025",
     type: "Freelance",
     description: [
-      "Developed the front-end of the system for PT Sari Bahari.",
-      "Implemented existing UI components within a Laravel and Inertia.js front-end.",
+      "Developed the front-end of the system for PT Sari Bahari using PHP and CodeIgniter.",
+      "Implemented existing UI components with Bootstrap for responsive design.",
     ],
   },
   {
@@ -96,7 +148,15 @@ export const experienceData = [
   },
 ];
 
-export const skillsData = {
+export interface SkillsData {
+  frontend: string[];
+  backend: string[];
+  database: string[];
+  tools: string[];
+  softSkills: string[];
+}
+
+export const skillsData: SkillsData = {
   frontend: [
     "HTML",
     "CSS",
@@ -112,7 +172,16 @@ export const skillsData = {
   softSkills: ["Problem Solving", "Teamwork", "Communication", "Adaptability"],
 };
 
-export const portfolioItems = [
+export interface PortfolioItem {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  alt: string;
+  isPrivate?: boolean;
+}
+
+export const portfolioItems: PortfolioItem[] = [
   {
     title: "EMPEROR - Intelligent Employee Career Development System",
     description:
@@ -189,7 +258,15 @@ export const portfolioItems = [
   },
 ];
 
-export const contactData = {
+export interface ContactData {
+  email: string;
+  phone: string;
+  linkedin: string;
+  website: string;
+  location: string;
+}
+
+export const contactData: ContactData = {
   email: "gilang@pambudi.dev",
   phone: "+62 812-4942-7072",
   linkedin: "https://linkedin.com/in/gilang-pambudi",

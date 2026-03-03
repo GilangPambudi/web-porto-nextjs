@@ -1,3 +1,4 @@
+import React from "react"
 import {
     SiHtml5,
     SiCss3,
@@ -25,7 +26,7 @@ import {
 
 export interface Skill {
     name: string
-    icon: any
+    icon: React.ElementType
     color?: string
 }
 
