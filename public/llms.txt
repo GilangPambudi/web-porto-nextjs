@@ -1,0 +1,41 @@
+# Gilang Pambudi Wibawanto — Portfolio
+> Full-stack web developer and software engineer based in Malang, Indonesia.
+> Specializes in Next.js, React, Laravel, PHP, CodeIgniter, WordPress, and Tailwind CSS.
+> Available for freelance projects and job opportunities.
+
+## About
+- [Home](https://pambudi.dev): Personal portfolio and professional overview
+
+## Professional Background
+Gilang Pambudi Wibawanto is a web developer and software engineer from Malang, Indonesia.
+He holds an Applied Bachelor's degree in Business Information Systems from State Polytechnic of Malang (Polinema), graduating in 2025 with a GPA of 3.61/4.00.
+Currently working as a Software Developer Staff at PT Green Energi Utama (Feb 2026–present), focusing on ERP systems with CodeIgniter.
+
+## Skills & Tech Stack
+- Frontend: Next.js, React, Tailwind CSS, Shadcn UI, Bootstrap
+- Backend: Laravel, PHP, CodeIgniter, Node.js
+- CMS: WordPress (Elementor)
+- Other: OpenStreetMap integration, unit & integration testing
+
+## Work Experience
+- PT Green Energi Utama — Software Developer Staff (Feb 2026–present): ERP development with CodeIgniter
+- SMADATARA Run 2026 — Freelance Web Developer (Dec 2025): Event landing page, 1,500+ registered participants
+- PT Sari Bahari — Freelance Software Developer (Sep–Dec 2025): Front-end system with PHP & CodeIgniter
+- Folding Ngalam Freedom for All — Freelance Web Developer (Aug 2025): Event landing page, 100+ participants
+- M111 The Reunion — Freelance Web Developer (May–Jun 2025): Event website with Next.js, 400 participants
+- Ngalam Folding Bike — WordPress Developer Intern (Oct–Dec 2024): National event website, 3,000+ participants
+
+## Projects
+- EMPEROR: HR promotion and transfer recommendation system for PT Sari Bahari
+- PAMS: Property and occupant management system built with Laravel and React
+- SERAPHIM: Phone information search connected with phone codename repository
+- SMADATARARUN 2026: Official event website for running event
+- Quick Response Elegant Wedding: Wedding guest, invitation, and gift management system with Laravel
+- Folding Ngalam Freedom for All: Event landing page
+- M111 Reunion Family Event: Event information website
+- Instagram Mutual Detector: Tool to find non-mutual Instagram followers
+- JAMSELINAS 13 2024 Malang: Jambore Sepeda Lipat Nasional event website (WordPress)
+
+## Contact
+- Website: https://pambudi.dev
+- Available for: Freelance projects, full-time opportunities, collaborations

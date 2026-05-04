@@ -2,6 +2,64 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Toaster } from '@/components/ui/sonner'
 
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Gilang Pambudi Wibawanto',
+  alternateName: 'Gilang Pambudi',
+  url: 'https://pambudi.dev',
+  image: 'https://pambudi.dev/profil.jpeg',
+  jobTitle: 'Software Developer',
+  description: 'Full-stack web developer and software engineer based in Malang, Indonesia. Specializes in Next.js, React, Laravel, PHP, and CodeIgniter. Currently working at PT Green Energi Utama. Available for freelance and full-time opportunities.',
+  knowsAbout: [
+    'Next.js',
+    'React',
+    'Laravel',
+    'PHP',
+    'CodeIgniter',
+    'Tailwind CSS',
+    'WordPress',
+    'Node.js',
+    'Web Development',
+    'Software Engineering',
+    'ERP Systems',
+  ],
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'State Polytechnic of Malang',
+    alternateName: 'Polinema',
+    url: 'https://www.polinema.ac.id',
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'PT Green Energi Utama',
+    url: 'https://www.greenenergiutama.co.id',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Malang',
+    addressRegion: 'Jawa Timur',
+    addressCountry: 'ID',
+  },
+  sameAs: [
+    'https://github.com/gilangpambudi',
+    'https://linkedin.com/in/gilangpambudi',
+  ],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Gilang Pambudi Wibawanto Portfolio',
+  url: 'https://pambudi.dev',
+  description: 'Personal portfolio of Gilang Pambudi Wibawanto, a full-stack web developer and software engineer from Malang, Indonesia.',
+  author: {
+    '@type': 'Person',
+    name: 'Gilang Pambudi Wibawanto',
+  },
+  inLanguage: ['id', 'en'],
+}
+
 export const metadata: Metadata = {
   title: {
     default: 'Gilang Pambudi Wibawanto',
@@ -81,6 +139,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         {children}
         <Toaster position="top-center" richColors />
       </body>
