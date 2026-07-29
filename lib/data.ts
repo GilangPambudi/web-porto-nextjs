@@ -18,10 +18,8 @@ export const heroData: HeroData = {
   sloganLine1: "Let's Make Something Useful.",
   sloganLine2: "Let's Make Something Useful.",
   subSlogan: [
-    "Web Developer",
     "Software Engineer",
-    "Freelancer",
-    "IT Operations",
+    "Full Stack Developer",
   ],
   image: "/profil.jpeg", // Using existing image path
   cv: "/cv-gilang.pdf", // Assumption, placeholder
@@ -80,6 +78,17 @@ export interface ExperienceItem {
 }
 
 export const experienceData: ExperienceItem[] = [
+  {
+    company: "Ecofest.id",
+    role: "Programmer",
+    period: "Jul 2026 - Present",
+    type: "Self Employed",
+    description: [
+      "Developed and maintained features in the ecofest.id platform.",
+      "Collaborated with the team to optimize performance and enhance user experience.",
+      "Implemented new functionalities based on business requirements.",
+    ],
+  },
   {
     company: "PT Green Energi Utama",
     role: "Software Developer Staff",
@@ -237,7 +246,7 @@ export const portfolioItems: PortfolioItem[] = [
     description:
       "A website for the M111 event, providing event information and details.",
     image: "/m111.png",
-    link: "https://ngalamfoldingbike.id/",
+    link: "https://ngalamfoldingbike.id/m111",
     alt: "m111",
   },
   {

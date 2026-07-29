@@ -9,7 +9,7 @@ const footerItems = [
   {
     label: "Gmail",
     icon: <SiGmail className="w-6 h-6" />,
-    href: "mailto:gilangpambudiwibawanto@gmail.com",
+    href: "mailto:gilang@pambudi.dev",
   },
   {
     label: "GitHub",
