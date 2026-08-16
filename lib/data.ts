@@ -278,7 +278,7 @@ export interface ContactData {
 export const contactData: ContactData = {
   email: "gilang@pambudi.dev",
   phone: "+62 812-4942-7072",
-  linkedin: "https://linkedin.com/in/gilang-pambudi",
+  linkedin: "https://linkedin.com/in/gilangpambudi",
   website: "https://pambudi.dev/",
   location: "Malang, East Java",
 };
