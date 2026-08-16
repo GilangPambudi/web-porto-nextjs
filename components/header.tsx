@@ -58,9 +58,9 @@ export default function Header() {
     <>
       {/* --- DESKTOP HEADER (Floating) --- */}
       <header
-        className={`hidden md:block fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full border ${isScrolled
-          ? "top-4 w-[80%] bg-white/80 backdrop-blur-md shadow-lg border-gray-200 py-4 px-8"
-          : "top-4 w-[90%] bg-white/50 backdrop-blur-sm border-transparent py-4 px-10"
+        className={`hidden md:block fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out ${isScrolled
+          ? "top-4 w-[80%] rounded-sm bg-white/80 backdrop-blur-md shadow-lg py-4 px-8"
+          : "top-4 w-[90%] border-0 bg-transparent backdrop-blur-sm py-4 px-10"
           }`}
       >
         <div className="flex justify-between items-center space-x-12">
@@ -88,13 +88,13 @@ export default function Header() {
 
 
       {/* --- MOBILE NAVIGATION (Bottom - Floating) --- */}
-      <nav className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] z-50 bg-white/60 backdrop-blur-md border border-gray-200 rounded-full px-4 py-2 shadow-lg">
+      <nav className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] z-50 bg-white/60 backdrop-blur-md border border-gray-200 rounded-sm px-4 py-2">
         <div className="flex justify-around items-center">
           {navItems.map((item) => (
             <Link
               key={item.id}
               href={`/#${item.id}`}
-              className={`flex flex-col items-center justify-center p-2 rounded-full transition-all duration-200 ${activeSection === item.id
+              className={`flex flex-col items-center justify-center p-2 rounded-sm transition-all duration-200 ${activeSection === item.id
                 ? "text-blue-600"
                 : "text-gray-500 hover:text-gray-800"
                 }`}

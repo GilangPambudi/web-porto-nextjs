@@ -12,7 +12,7 @@ export default function HeroSection() {
 
       <div className="w-full max-w-5xl mx-auto px-4 relative z-10 text-center">
         <div className="animate-in fade-in zoom-in duration-1000 ease-out">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 tracking-tighter mb-6 leading-tight min-h-[1.2em]">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-tighter mb-6 leading-tight min-h-[1.2em]">
             <TextType
               text={[heroData.sloganLine1, heroData.sloganLine2]}
               as="span"
@@ -27,7 +27,7 @@ export default function HeroSection() {
             {heroData.subSlogan.map((role, index) => (
               <span
                 key={index}
-                className="px-4 py-2 rounded-full border border-gray-200 bg-white/50 backdrop-blur-sm text-gray-600 text-sm md:text-base font-medium hover:bg-white hover:border-gray-300 transition-all cursor-default"
+                className="px-4 py-2 rounded-sm border border-gray-200 bg-white/50 backdrop-blur-sm text-gray-600 text-sm md:text-base font-medium hover:bg-white hover:border-gray-300 transition-all cursor-default"
               >
                 {role}
               </span>

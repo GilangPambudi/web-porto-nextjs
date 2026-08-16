@@ -170,6 +170,9 @@ const TextType = ({
 
     const shouldHideCursor =
         hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
+    const lastWordStart = displayedText.lastIndexOf(' ') + 1;
+    const textBeforeLastWord = displayedText.slice(0, lastWordStart);
+    const lastWord = displayedText.slice(lastWordStart);
 
     return createElement(
         Component,
@@ -179,16 +182,19 @@ const TextType = ({
             ...props
         },
         <span className="inline" style={{ color: getCurrentTextColor() || 'inherit' }}>
-            {displayedText}
+            {textBeforeLastWord}
         </span>,
-        showCursor && (
-            <span
-                ref={cursorRef}
-                className={`ml-1 inline-block opacity-100 ${shouldHideCursor ? 'hidden' : ''} ${cursorClassName}`}
-            >
-                {cursorCharacter}
-            </span>
-        )
+        <span className="whitespace-nowrap">
+            <span style={{ color: getCurrentTextColor() || 'inherit' }}>{lastWord}</span>
+            {showCursor && (
+                <span
+                    ref={cursorRef}
+                    className={`ml-1 inline-block opacity-100 ${shouldHideCursor ? 'hidden' : ''} ${cursorClassName}`}
+                >
+                    {cursorCharacter}
+                </span>
+            )}
+        </span>
     );
 };
 

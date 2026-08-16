@@ -37,7 +37,7 @@ export default function AboutSection() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Education</h3>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex justify-between items-center">
+                <div className="bg-white p-4 rounded-sm border border-gray-300 flex justify-between items-center">
                   <div>
                     <h4 className="font-bold text-gray-800">{aboutData.education.institution}</h4>
                     <p className="text-blue-600 font-medium">{aboutData.education.degree}</p>
@@ -62,7 +62,7 @@ export default function AboutSection() {
                     <button
                       key={idx}
                       onClick={() => setSelectedCert({ url: cert.link, title: cert.name })}
-                      className="inline-flex items-center px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-blue-300 transition-colors cursor-pointer"
+                      className="inline-flex items-center px-4 py-2 bg-white rounded-sm border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-blue-300 transition-colors cursor-pointer"
                     >
                       {cert.name}
                     </button>

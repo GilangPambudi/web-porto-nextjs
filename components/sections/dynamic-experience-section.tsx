@@ -49,9 +49,9 @@ export default function DynamicExperienceSection() {
                             <div className="w-full md:w-[45%]">
                                 <ExperienceCard
                                     item={item}
-                                    className={`transition-all duration-300 border ${activeIndex === index
-                                        ? "bg-blue-50 border-blue-200 shadow-xl scale-[1.02]"
-                                        : "bg-white border-gray-100 hover:shadow-lg"
+                                    className={`transition-colors duration-200 border ${activeIndex === index
+                                        ? "bg-blue-50 border-blue-300"
+                                        : "bg-white border-gray-300"
                                         }`}
                                 />
                             </div>

@@ -1,9 +1,8 @@
 "use client"
 
 import { contactData } from "@/lib/data"
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, Linkedin, MapPin, Send, ExternalLink } from "lucide-react"
+import { Mail, Linkedin, MapPin, ExternalLink } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 import { toast } from "sonner"
 
@@ -20,103 +19,65 @@ export default function ContactSection() {
                     </p>
                 </div>
 
-                <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-1000 delay-300 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-
-                    {/* Contact Info Card */}
-                    <Card className="hidden md:block border-0 shadow-lg bg-white overflow-hidden">
-                        <div className="h-2 bg-blue-600 w-full"></div>
-                        <CardContent className="p-8">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center md:text-left">Contact Information</h3>
-
-                            <div className="flex flex-row md:flex-col justify-center md:justify-start gap-8 md:gap-0 md:space-y-6">
-                                {/* Email */}
-                                <div className="flex items-center md:items-start md:space-x-4">
-                                    <div
-                                        className="bg-blue-100 p-3 rounded-full text-blue-600 shrink-0"
-                                    >
-                                        <Mail className="w-5 h-5" />
-                                    </div>
-                                    <div className="hidden md:block">
-                                        <p className="text-sm font-medium text-gray-500">Email</p>
-                                        <div className="flex items-center space-x-2">
-                                            <button
-                                                onClick={async () => {
-                                                    try {
-                                                        await navigator.clipboard.writeText(contactData.email)
-                                                        toast.success("Email copied to clipboard")
-                                                    } catch {
-                                                        toast.error("Failed to copy email")
-                                                    }
-                                                }}
-                                                className="text-gray-900 font-semibold hover:text-blue-600 transition-colors text-left"
-                                            >
-                                                {contactData.email}
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* LinkedIn */}
-                                <div className="flex items-center md:items-start md:space-x-4">
-                                    <a
-                                        href={contactData.linkedin}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-blue-50 p-3 rounded-full text-blue-700 shrink-0 hover:bg-blue-100 transition-colors group"
-                                        aria-label="LinkedIn"
-                                    >
-                                        <Linkedin className="w-5 h-5" />
-                                    </a>
-                                    <div className="hidden md:block">
-                                        <p className="text-sm font-medium text-gray-500">LinkedIn</p>
-                                        <a
-                                            href={contactData.linkedin}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="group flex items-center space-x-2 text-gray-900 font-semibold hover:text-blue-700 transition-colors"
-                                        >
-                                            <span>Connect on LinkedIn</span>
-                                            <ExternalLink className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                                        </a>
-                                    </div>
-                                </div>
-
-                                {/* Location */}
-                                <div className="flex items-center md:items-start md:space-x-4">
-                                    <div className="bg-gray-100 p-3 rounded-full text-gray-700 shrink-0">
-                                        <MapPin className="w-5 h-5" />
-                                    </div>
-                                    <div className="hidden md:block">
-                                        <p className="text-sm font-medium text-gray-500">Location</p>
-                                        <p className="text-gray-900 font-semibold">
-                                            {contactData.location}
-                                        </p>
-                                    </div>
-                                </div>
+                <div className={`grid overflow-hidden rounded-sm border border-gray-300 bg-white transition-all duration-1000 delay-300 md:grid-cols-2 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+                    <div className="divide-y divide-gray-200">
+                        <div className="flex items-start gap-4 p-5 md:p-6">
+                            <Mail className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                            <div className="min-w-0">
+                                <p className="text-xs font-medium uppercase tracking-[0.08em] text-gray-500">Email</p>
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            await navigator.clipboard.writeText(contactData.email)
+                                            toast.success("Email copied to clipboard")
+                                        } catch {
+                                            toast.error("Failed to copy email")
+                                        }
+                                    }}
+                                    className="mt-1 break-all text-left text-sm font-semibold text-gray-900 transition-colors hover:text-blue-600 md:text-base"
+                                >
+                                    {contactData.email}
+                                </button>
                             </div>
-                        </CardContent>
-                    </Card>
+                        </div>
 
-                    {/* Simple Form (mailto fallback) */}
-                    <Card className="border-0 shadow-lg bg-blue-900 text-white overflow-hidden flex flex-col justify-center">
-                        <CardContent className="p-8 text-center space-y-6">
-                            <div className="mx-auto bg-white/10 p-4 rounded-full w-20 h-20 flex items-center justify-center mb-4">
-                                <Send className="w-10 h-10 text-white" />
+                        <div className="flex items-start gap-4 p-5 md:p-6">
+                            <Linkedin className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                            <div className="min-w-0">
+                                <p className="text-xs font-medium uppercase tracking-[0.08em] text-gray-500">LinkedIn</p>
+                                <a
+                                    href={contactData.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-1 inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-blue-700 md:text-base"
+                                >
+                                    Connect on LinkedIn
+                                    <ExternalLink className="h-3.5 w-3.5" />
+                                </a>
                             </div>
-                            <h3 className="text-2xl font-bold">Ready to Start?</h3>
-                            <p className="text-white/80 leading-relaxed">
-                                I'm currently available for freelance projects and job opportunities. Let's build something amazing together.
-                            </p>
-                            <div className="pt-4">
-                                <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50 font-bold px-8">
-                                    <a href={`mailto:${contactData.email}?subject=Project Inquiry`}>
-                                        Send Me an Email
-                                    </a>
-                                </Button>
-                            </div>
-                        </CardContent>
-                    </Card>
+                        </div>
 
+                        <div className="flex items-start gap-4 p-5 md:p-6">
+                            <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gray-700" />
+                            <div className="min-w-0">
+                                <p className="text-xs font-medium uppercase tracking-[0.08em] text-gray-500">Location</p>
+                                <p className="mt-1 text-sm font-semibold text-gray-900 md:text-base">{contactData.location}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col justify-center border-t border-blue-950 bg-blue-900 p-6 text-white md:border-l md:border-t-0 md:p-8">
+                        <p className="text-xs font-medium uppercase tracking-[0.08em] text-white/60">Available for work</p>
+                        <h3 className="mt-3 text-2xl font-bold">Ready to Start?</h3>
+                        <p className="mt-4 leading-relaxed text-white/80">
+                            I'm currently available for freelance projects and job opportunities. Let's build something amazing together.
+                        </p>
+                        <Button asChild size="lg" className="mt-6 w-full rounded-sm bg-white px-8 font-bold text-blue-900 hover:bg-blue-50 md:w-fit">
+                            <a href={`mailto:${contactData.email}?subject=Project Inquiry`}>
+                                Send Me an Email
+                            </a>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </section>

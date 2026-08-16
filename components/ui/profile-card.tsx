@@ -273,12 +273,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 className="relative w-full max-w-sm h-auto transition-transform duration-100 ease-out preserve-3d"
                 style={{ transform: 'rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg))' }}
             >
-                <section className="w-full h-full bg-white rounded-3xl shadow-xl overflow-hidden preserve-3d">
+                <section className="w-full h-full bg-white rounded-sm border border-gray-300 shadow-none overflow-hidden preserve-3d">
                     <div className="flex flex-col items-center justify-start p-8 gap-6 preserve-3d">
 
                         {/* Name and Title */}
                         <div className="text-center translate-z-12">
-                            <h3 className="m-0 text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                            <h3 className="m-0 text-3xl font-bold text-gray-900 tracking-tight leading-tight">
                                 {name}
                             </h3>
                             <p className="mt-2 text-lg font-medium text-gray-500">
