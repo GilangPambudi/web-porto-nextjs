@@ -46,7 +46,7 @@ export interface AboutData {
 }
 
 export const aboutData: AboutData = {
-  bio: "Web Developer with experience building event platforms and landing pages. Proficient in Next.js, React, Tailwind CSS, WordPress, Laravel, and PHP, and basic Node.js knowledge. Experienced in managing live systems and production traffic under tight deadlines.",
+  bio: "Web Developer with experience building web applications, ERP systems, and landing pages. Proficient in Next.js, React, Tailwind CSS, CodeIgniter, and Laravel. Capable of managing live systems and production traffic under tight deadlines.",
   education: {
     institution: "State Polytechnic of Malang",
     degree: "Applied Bachelor of Business Information Systems",
@@ -96,8 +96,8 @@ export const experienceData: ExperienceItem[] = [
     type: "Contract",
     description: [
       "Developed and maintained features in the Enterprise Resource Planning (ERP) system using CodeIgniter.",
-      "Conducted comprehensive testing including unit tests and integration tests.",
-      "Collaborated with team members to resolve bugs and improve system functionality.",
+      "Built and maintained the Transportation Management System to support efficient logistics operations.",
+      "Collaborated with the team to resolve bugs, improve functionality, and validate system workflows through testing.",
     ],
   },
   {
