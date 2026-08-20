@@ -4,13 +4,112 @@
 import Image from "next/image"
 import { aboutData, heroData } from "@/lib/data"
 import { useInView } from "@/hooks/use-in-view"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { PdfPreviewModal } from "@/components/ui/pdf-preview-modal"
 import ProfileCard from "@/components/ui/profile-card"
+
+const VISIT_DELAY = 10_000
+const VISIT_COOLDOWN = 60_000
+const LAST_VISIT_KEY = "portfolio_last_visit"
 
 export default function AboutSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
   const [selectedCert, setSelectedCert] = useState<{ url: string; title: string } | null>(null)
+  const visitSent = useRef(false)
+
+  useEffect(() => {
+    let remaining = VISIT_DELAY
+    let startedAt = 0
+    let timer: ReturnType<typeof setTimeout> | undefined
+
+    const sendVisit = async () => {
+      if (visitSent.current) return
+
+      let lastVisit = 0
+      try {
+        lastVisit = Number(localStorage.getItem(LAST_VISIT_KEY))
+      } catch {}
+
+      if (Date.now() - lastVisit < VISIT_COOLDOWN) {
+        visitSent.current = true
+        return
+      }
+
+      visitSent.current = true
+      let location = {}
+
+      try {
+        const response = await fetch("https://ipapi.co/json/", {
+          signal: AbortSignal.timeout(5000),
+        })
+        if (!response.ok) throw new Error(`ipapi returned ${response.status}`)
+
+        const data = await response.json()
+        location = {
+          ip: data.ip,
+          city: data.city,
+          region: data.region,
+          country_name: data.country_name,
+          org: data.org,
+        }
+      } catch (error) {
+        console.warn("Visitor location lookup failed:", error)
+      }
+
+      try {
+        const response = await fetch("/api/visit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(location),
+        })
+        if (!response.ok) throw new Error(`Visit endpoint returned ${response.status}`)
+
+        try {
+          localStorage.setItem(LAST_VISIT_KEY, String(Date.now()))
+        } catch {}
+      } catch (error) {
+        console.warn("Visitor notification failed:", error)
+      }
+    }
+
+    const stopTimer = () => {
+      if (!timer) return
+
+      clearTimeout(timer)
+      remaining = Math.max(0, remaining - (performance.now() - startedAt))
+      timer = undefined
+    }
+
+    const startTimer = () => {
+      if (timer || visitSent.current || document.hidden) return
+
+      startedAt = performance.now()
+      timer = setTimeout(() => void sendVisit(), remaining)
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopTimer()
+      } else if (isInView) {
+        void sendVisit()
+      } else {
+        startTimer()
+      }
+    }
+
+    if (isInView && !document.hidden) {
+      void sendVisit()
+    } else {
+      startTimer()
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+
+    return () => {
+      if (timer) clearTimeout(timer)
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
+    }
+  }, [isInView])
 
   return (
     <section ref={ref} id="about" className="pt-10 pb-10 md:py-24 bg-slate-50 relative overflow-hidden min-h-screen w-full flex items-center justify-center">
