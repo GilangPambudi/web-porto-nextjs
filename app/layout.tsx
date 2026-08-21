@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
+import { Figtree } from 'next/font/google'
 import './globals.css'
 import { Toaster } from '@/components/ui/sonner'
+
+const figtree = Figtree({
+  subsets: ['latin'],
+  variable: '--font-figtree',
+})
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -138,7 +144,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={figtree.variable}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
